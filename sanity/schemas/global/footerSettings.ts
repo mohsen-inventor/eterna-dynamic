@@ -3,7 +3,7 @@ import { BlockContentIcon } from '@sanity/icons';
 
 export default defineType({
   name: 'footerSettings',
-  title: 'Footer',
+  title: 'Page Footer',
   type: 'document',
   icon: BlockContentIcon,
   fields: [
@@ -99,7 +99,7 @@ export default defineType({
     },
     prepare({ text }) {
       return {
-        title: 'Footer',
+        title: 'Page Footer',
         subtitle: text || 'Configure footer content',
       };
     },

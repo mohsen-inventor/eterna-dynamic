@@ -50,9 +50,9 @@ export const structure = (S: StructureBuilder) =>
                     .documentId('seoSettings')
                 ),
               
-              // Header & Navigation
+              // Page Header
               S.listItem()
-                .title('Header & Navigation')
+                .title('Page Header')
                 .icon(DesktopIcon)
                 .child(
                   S.document()
@@ -70,9 +70,9 @@ export const structure = (S: StructureBuilder) =>
                     .documentId('mainMenu')
                 ),
               
-              // Footer
+              // Page Footer
               S.listItem()
-                .title('Footer')
+                .title('Page Footer')
                 .icon(LinkIcon)
                 .child(
                   S.document()

@@ -231,9 +231,9 @@ async function seed() {
     // Seed Global Settings
     console.log('=== Global Settings ===');
     await seedDocument('Site Info', seedData.siteInfo);
-    await seedDocument('Header Settings', seedData.headerSettings);
+    await seedDocument('Page Header', seedData.headerSettings);
     await seedDocument('Main Menu', seedData.mainMenu);
-    await seedDocument('Footer Settings', seedData.footerSettings);
+    await seedDocument('Page Footer', seedData.footerSettings);
     await seedDocument('SEO Settings', seedData.seoSettings);
     console.log('');
     

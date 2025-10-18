@@ -3,7 +3,7 @@ import { DesktopIcon } from '@sanity/icons';
 
 export default defineType({
   name: 'headerSettings',
-  title: 'Header & Navigation',
+  title: 'Page Header',
   type: 'document',
   icon: DesktopIcon,
   fields: [
@@ -39,7 +39,7 @@ export default defineType({
     },
     prepare({ title }) {
       return {
-        title: 'Header & Navigation',
+        title: 'Page Header',
         subtitle: `CTA: ${title || "LET'S TALK"}`,
       };
     },
