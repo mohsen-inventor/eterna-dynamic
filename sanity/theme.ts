@@ -13,7 +13,7 @@ export const customTheme = definePlugin({
             const style = document.createElement('style');
             style.id = styleId;
             style.textContent = `
-              /* Structure navigation items - Always white text on hover */
+              /* Structure navigation items - FORCE white text on hover */
               
               /* HOVER: Purple background */
               [data-ui="Flex"][role="button"]:hover,
@@ -23,20 +23,44 @@ export const customTheme = definePlugin({
                 border-radius: 6px !important;
               }
               
-              /* HOVER: Force white text - ALWAYS WHITE, no exceptions */
-              [data-ui="Flex"][role="button"]:hover * {
+              /* HOVER: FORCE white text - Maximum specificity to override sky color */
+              [data-ui="Flex"][role="button"]:hover[data-ui="Flex"][role="button"]:hover * {
                 color: #ffffff !important;
               }
               
-              [data-as="li"] [data-ui="Flex"]:hover * {
+              [data-as="li"] [data-ui="Flex"]:hover[data-as="li"] [data-ui="Flex"]:hover * {
                 color: #ffffff !important;
               }
               
-              [data-ui="Card"]:hover * {
+              [data-ui="Card"]:hover[data-ui="Card"]:hover * {
                 color: #ffffff !important;
               }
               
-              button[data-ui]:hover * {
+              /* Extra aggressive - target Text component directly */
+              [data-ui="Flex"]:hover [data-ui="Text"],
+              [data-ui="Card"]:hover [data-ui="Text"],
+              [data-ui="Flex"]:hover span,
+              [data-ui="Card"]:hover span,
+              [data-ui="Flex"]:hover p,
+              [data-ui="Card"]:hover p,
+              [data-ui="Flex"]:hover div,
+              [data-ui="Card"]:hover div {
+                color: #ffffff !important;
+              }
+              
+              /* Override any accent colors (sky blue, etc.) */
+              [data-ui="Flex"]:hover [data-ui="Text"][data-tone],
+              [data-ui="Card"]:hover [data-ui="Text"][data-tone],
+              [data-ui="Flex"]:hover [data-tone],
+              [data-ui="Card"]:hover [data-tone],
+              [data-ui="Flex"]:hover [data-tone="primary"],
+              [data-ui="Card"]:hover [data-tone="primary"],
+              [data-ui="Flex"]:hover [data-ui="Text"][data-tone="primary"],
+              [data-ui="Card"]:hover [data-ui="Text"][data-tone="primary"],
+              [data-ui="Flex"]:hover [class*="accent"],
+              [data-ui="Card"]:hover [class*="accent"],
+              [data-ui="Flex"]:hover [class*="primary"],
+              [data-ui="Card"]:hover [class*="primary"] {
                 color: #ffffff !important;
               }
               
@@ -79,6 +103,47 @@ export const customTheme = definePlugin({
               }
               
               [data-ui="Card"][data-selected="true"] * {
+                color: #ffffff !important;
+              }
+              
+              /* ACTIVE: Override accent colors - Extra aggressive */
+              [data-ui="Flex"][aria-selected="true"] [data-tone],
+              [data-ui="Flex"][aria-selected="true"] [data-tone="primary"],
+              [data-ui="Card"][aria-selected="true"] [data-tone],
+              [data-ui="Card"][aria-selected="true"] [data-tone="primary"],
+              [data-ui="Flex"][aria-selected="true"] [class*="accent"],
+              [data-ui="Card"][aria-selected="true"] [class*="accent"],
+              [data-ui="Flex"][data-selected="true"] [data-tone],
+              [data-ui="Card"][data-selected="true"] [data-tone],
+              [data-as="li"][aria-selected="true"] [data-tone] {
+                color: #ffffff !important;
+              }
+              
+              /* ACTIVE: Target Text components directly */
+              [data-ui="Flex"][aria-selected="true"] [data-ui="Text"],
+              [data-ui="Card"][aria-selected="true"] [data-ui="Text"],
+              [data-ui="Flex"][data-selected="true"] [data-ui="Text"],
+              [data-ui="Card"][data-selected="true"] [data-ui="Text"],
+              [data-ui="Flex"][aria-selected="true"] span,
+              [data-ui="Card"][aria-selected="true"] span,
+              [data-ui="Flex"][data-selected="true"] span,
+              [data-ui="Card"][data-selected="true"] span,
+              [data-ui="Flex"][aria-selected="true"] p,
+              [data-ui="Card"][aria-selected="true"] p,
+              [data-ui="Flex"][data-selected="true"] p,
+              [data-ui="Card"][data-selected="true"] p,
+              [data-ui="Flex"][aria-selected="true"] div,
+              [data-ui="Card"][aria-selected="true"] div,
+              [data-ui="Flex"][data-selected="true"] div,
+              [data-ui="Card"][data-selected="true"] div {
+                color: #ffffff !important;
+              }
+              
+              /* ACTIVE: Maximum specificity for stubborn elements */
+              [data-ui="Flex"][aria-selected="true"][data-ui="Flex"][aria-selected="true"] *,
+              [data-ui="Card"][aria-selected="true"][data-ui="Card"][aria-selected="true"] *,
+              [data-ui="Flex"][data-selected="true"][data-ui="Flex"][data-selected="true"] *,
+              [data-ui="Card"][data-selected="true"][data-ui="Card"][data-selected="true"] * {
                 color: #ffffff !important;
               }
               
