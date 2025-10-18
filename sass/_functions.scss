@@ -1,0 +1,57 @@
+// ============================================
+// Sass Functions
+// ============================================
+
+@use 'sass:math';
+@use 'sass:color';
+
+// ----------------
+// Spacing Functions
+// ----------------
+
+// Convert px to rem
+@function rem($px, $base: 16px) {
+  @return math.div($px, $base) * 1rem;
+}
+
+// Convert px to em
+@function em($px, $base: 16px) {
+  @return math.div($px, $base) * 1em;
+}
+
+// Spacing scale (8px system)
+@function spacing($multiplier) {
+  @return $multiplier * 8px;
+}
+
+// ----------------
+// Color Functions
+// ----------------
+
+// Add alpha/opacity
+@function alpha($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+// ----------------
+// Strip Units
+// ----------------
+
+@function stripUnit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+  @return $number;
+}
+
+// ----------------
+// Fluid Typography
+// ----------------
+
+@function fluidSize($min, $max, $minVw: 320px, $maxVw: 1200px) {
+  $minSize: math.div($min, 16) * 1rem;
+  $maxSize: math.div($max, 16) * 1rem;
+  
+  @return calc(#{$minSize} + #{math.div($max - $min, 16)} * ((100vw - #{$minVw}) / #{math.div($maxVw - $minVw, 16)}));
+}
+
