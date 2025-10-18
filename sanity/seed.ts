@@ -69,9 +69,9 @@ const seedData = {
     _type: 'mainMenu',
     _id: 'mainMenu',
     menuItems: [
-      { title: 'What We Do', link: '#services', order: 1 },
-      { title: 'Our Approach', link: '#solutions', order: 2 },
-      { title: 'About Us', link: '#process', order: 3 },
+      { _key: 'menu-what-we-do', title: 'What We Do', link: '#services', order: 1 },
+      { _key: 'menu-our-approach', title: 'Our Approach', link: '#solutions', order: 2 },
+      { _key: 'menu-about-us', title: 'About Us', link: '#process', order: 3 },
     ],
   },
   
@@ -80,13 +80,13 @@ const seedData = {
     _id: 'footerSettings',
     footerText: '© 2025 EternaCloud. All rights reserved.',
     footerLinks: [
-      { title: 'Privacy Policy', url: '/privacy' },
-      { title: 'Terms of Service', url: '/terms' },
-      { title: 'Contact', url: '/contact' },
+      { _key: 'footer-privacy', title: 'Privacy Policy', url: '/privacy' },
+      { _key: 'footer-terms', title: 'Terms of Service', url: '/terms' },
+      { _key: 'footer-contact', title: 'Contact', url: '/contact' },
     ],
     socialLinks: [
-      { platform: 'twitter', url: 'https://twitter.com/eternacloud' },
-      { platform: 'linkedin', url: 'https://linkedin.com/company/eternacloud' },
+      { _key: 'social-twitter', platform: 'twitter', url: 'https://twitter.com/eternacloud' },
+      { _key: 'social-linkedin', platform: 'linkedin', url: 'https://linkedin.com/company/eternacloud' },
     ],
   },
   
@@ -117,24 +117,28 @@ const seedData = {
     description: 'For situational clarity through constant change. Proven on 330+ MW of data center builds.',
     services: [
       {
+        _key: 'service-design',
         stage: 'Design',
         title: 'Solutions without the heavy lifting.',
         features: ['Dedicated specialists', 'Decision-ready solutions'],
         order: 1,
       },
       {
+        _key: 'service-onboarding',
         stage: 'Onboarding',
         title: 'Vendors are kept on track for you.',
         features: ['Cross-organizational alignment', 'Follow-through ownership'],
         order: 2,
       },
       {
+        _key: 'service-delivery',
         stage: 'Delivery',
         title: 'Get it right the first time—every time.',
         features: ['Expert-led execution', 'Change ownership'],
         order: 3,
       },
       {
+        _key: 'service-deployment',
         stage: 'Deployment',
         title: 'Context always carries forward.',
         features: ['Clean handoffs', 'Turnkey outcomes'],
@@ -177,18 +181,22 @@ const seedData = {
     description: 'EternaCloud teams secure, align, validate and curate exactly what keeps your teams moving.',
     functions: [
       {
+        _key: 'function-secures',
         name: 'Secures',
         items: ['requirements', 'expectations', 'context', 'facts'],
       },
       {
+        _key: 'function-aligns',
         name: 'Aligns',
         items: ['dependencies', 'stakeholders', 'processes', 'vendors'],
       },
       {
+        _key: 'function-validates',
         name: 'Validates',
         items: ['completeness', 'coherence', 'assurances', 'details'],
       },
       {
+        _key: 'function-curates',
         name: 'Curates',
         items: ['deliverables', 'resolutions', 'initiatives', 'stages'],
       },
