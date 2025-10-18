@@ -2,10 +2,13 @@ import { StructureBuilder } from 'sanity/structure';
 import { 
   CogIcon, 
   HomeIcon, 
+  DocumentIcon,
+  ImageIcon,
   DesktopIcon,
   MenuIcon,
   LinkIcon,
   SearchIcon,
+  ShareIcon,
   RocketIcon,
   ComponentIcon,
   BulbOutlineIcon,
@@ -18,15 +21,8 @@ export const structure = (S: StructureBuilder) =>
     .title('Content')
     .items([
       // ============================================
-      // SITE-WIDE SETTINGS SECTION
+      // GLOBAL SETTINGS
       // ============================================
-      S.divider(),
-      
-      S.listItem()
-        .title('═══ SITE-WIDE SETTINGS ═══')
-        .icon(CogIcon)
-        .child(S.list().title('Not clickable').items([])),
-      
       S.listItem()
         .title('Global Settings')
         .icon(CogIcon)
@@ -89,13 +85,8 @@ export const structure = (S: StructureBuilder) =>
       S.divider(),
       
       // ============================================
-      // PAGES SECTION
+      // HOME PAGE
       // ============================================
-      S.listItem()
-        .title('═══ PAGES ═══')
-        .icon(HomeIcon)
-        .child(S.list().title('Not clickable').items([])),
-      
       S.listItem()
         .title('Home Page')
         .icon(HomeIcon)
@@ -144,6 +135,4 @@ export const structure = (S: StructureBuilder) =>
                 ),
             ])
         ),
-      
-      S.divider(),
     ]);
