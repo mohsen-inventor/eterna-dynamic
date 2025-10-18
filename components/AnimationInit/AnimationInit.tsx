@@ -19,36 +19,7 @@ export default function AnimationInit() {
     try {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Hero Section Animations
-      const heroSection = document.querySelector(`.${css.hero}`) || document.getElementById('hero');
-      if (heroSection) {
-        const heroTagline = heroSection.querySelector('[class*="heroTagline"]');
-        const heroHeadline = heroSection.querySelector('[class*="heroHeadline"]');
-        const heroDescription = heroSection.querySelector('[class*="heroDescription"]');
-
-        if (heroTagline) {
-          gsap.fromTo(heroTagline,
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.3 }
-          );
-        }
-
-        if (heroHeadline) {
-          gsap.fromTo(heroHeadline,
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.5 }
-          );
-        }
-
-        if (heroDescription) {
-          gsap.fromTo(heroDescription,
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.7 }
-          );
-        }
-      }
-
-      // Services Section Animations
+      // Services Section Animations - EXACT MATCH TO STATIC SITE
       const servicesSection = document.querySelector('[class*="services"]');
       if (servicesSection) {
         const header = servicesSection.querySelector('[class*="servicesHeader"]');
@@ -57,36 +28,37 @@ export default function AnimationInit() {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: servicesSection,
-            start: 'top 80%',
-            end: 'bottom 20%',
+            start: 'top 90%',
+            end: 'bottom 10%',
             toggleActions: 'play none none reverse'
           }
         });
 
+        // Animate header first
         if (header) {
           tl.fromTo(header, 
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
           );
         }
 
+        // Animate service cards with stagger
         if (serviceCards.length) {
           tl.fromTo(serviceCards,
-            { opacity: 0, y: 50, scale: 0.95 },
+            { opacity: 0, y: 20 },
             { 
               opacity: 1, 
               y: 0, 
-              scale: 1,
-              duration: 0.5, 
-              ease: 'power3.out',
-              stagger: 0.1
+              duration: 0.3, 
+              ease: 'power2.out',
+              stagger: 0.08
             },
-            '-=0.3'
+            '-=0.2'
           );
         }
       }
 
-      // Solutions Section Animations
+      // Solutions Section Animations - EXACT MATCH TO STATIC SITE
       const solutionsSection = document.querySelector('[class*="solutions"]');
       if (solutionsSection) {
         const header = solutionsSection.querySelector('[class*="solutionsHeader"]');
@@ -97,103 +69,86 @@ export default function AnimationInit() {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: solutionsSection,
-            start: 'top 80%',
-            end: 'bottom 20%',
+            start: 'top 90%',
+            end: 'bottom 10%',
             toggleActions: 'play none none reverse'
           }
         });
 
+        // Animate header first
         if (header) {
           tl.fromTo(header, 
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
           );
         }
 
+        // Animate problems from left
         if (problems.length) {
           tl.fromTo(problems,
-            { opacity: 0, x: -50, scale: 0.95 },
+            { opacity: 0, x: -20 },
             { 
               opacity: 1, 
-              x: 0,
-              scale: 1, 
-              duration: 0.5, 
-              ease: 'power3.out',
-              stagger: 0.08
+              x: 0, 
+              duration: 0.3, 
+              ease: 'power2.out',
+              stagger: 0.06
             },
-            '-=0.3'
+            '-=0.2'
           );
         }
 
+        // Animate cosmos in center
         if (cosmos) {
           tl.fromTo(cosmos,
-            { opacity: 0, scale: 0.8, rotate: -10 },
-            { opacity: 1, scale: 1, rotate: 0, duration: 0.8, ease: 'power3.out' },
-            '-=0.4'
+            { opacity: 0, scale: 0.9 },
+            { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' },
+            '-=0.15'
           );
         }
 
+        // Animate solutions from right
         if (solutions.length) {
           tl.fromTo(solutions,
-            { opacity: 0, x: 50, scale: 0.95 },
+            { opacity: 0, x: 20 },
             { 
               opacity: 1, 
-              x: 0,
-              scale: 1, 
-              duration: 0.5, 
-              ease: 'power3.out',
-              stagger: 0.08
+              x: 0, 
+              duration: 0.3, 
+              ease: 'power2.out',
+              stagger: 0.06
             },
-            '-=0.6'
+            '-=0.3'
           );
         }
       }
 
-      // Process Section Animations
+      // Process Section Animations - EXACT MATCH TO STATIC SITE
+      // Uses Intersection Observer like the static site
       const processSection = document.querySelector('[class*="process"]');
       if (processSection) {
+        const observerOptions = {
+          threshold: 0.05,
+          rootMargin: '0px 0px -10% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-in');
+            } else {
+              entry.target.classList.remove('animate-in');
+            }
+          });
+        }, observerOptions);
+
         const header = processSection.querySelector('[class*="processHeader"]');
         const functions = processSection.querySelectorAll('[class*="processFunction"]');
         const wave = processSection.querySelector('[class*="processWave"]');
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: processSection,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            toggleActions: 'play none none reverse'
-          }
-        });
-
-        if (header) {
-          tl.fromTo(header, 
-            { opacity: 0, y: 40 },
-            { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
-          );
-        }
-
-        if (functions.length) {
-          tl.fromTo(functions,
-            { opacity: 0, y: 60, scale: 0.9 },
-            { 
-              opacity: 1, 
-              y: 0,
-              scale: 1, 
-              duration: 0.6, 
-              ease: 'power3.out',
-              stagger: 0.12
-            },
-            '-=0.3'
-          );
-        }
-
-        if (wave) {
-          tl.fromTo(wave,
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
-            '-=0.5'
-          );
-        }
+        if (header) observer.observe(header);
+        functions.forEach(func => observer.observe(func));
+        if (wave) observer.observe(wave);
       }
 
       // Header scroll behavior
