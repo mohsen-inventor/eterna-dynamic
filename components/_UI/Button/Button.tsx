@@ -16,24 +16,24 @@ interface ButtonProps {
 const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
   ({ children, onClick, href, variant = 'primary', size = 'md', width = 'auto', className = '' }, ref) => {
     const gradientOverlayRef = useRef<HTMLSpanElement>(null);
-    const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
+    const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement | null>(null);
 
     useEffect(() => {
       if (typeof window === 'undefined') return;
-      
+
       const element = buttonRef.current;
       const overlay = gradientOverlayRef.current;
-      
+
       if (!element || !overlay) return;
-      
+
       let handleMouseEnter: (() => void) | null = null;
       let handleMouseLeave: (() => void) | null = null;
-      
+
       const initAnimation = () => {
         const gsap = (window as any).gsap;
-        
+
         if (!gsap) return; // Wait for gsapReady event
-        
+
         handleMouseEnter = () => {
           gsap.to(overlay, {
             opacity: 1,
@@ -42,7 +42,7 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
             ease: 'power2.out'
           });
         };
-        
+
         handleMouseLeave = () => {
           gsap.to(overlay, {
             opacity: 0,
@@ -51,17 +51,17 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
             ease: 'power2.inOut'
           });
         };
-        
+
         element.addEventListener('mouseenter', handleMouseEnter);
         element.addEventListener('mouseleave', handleMouseLeave);
       };
-      
+
       // Try immediately if GSAP already loaded
       initAnimation();
-      
+
       // Also listen for gsapReady event
       window.addEventListener('gsapReady', initAnimation);
-      
+
       return () => {
         window.removeEventListener('gsapReady', initAnimation);
         if (handleMouseEnter && handleMouseLeave) {
@@ -74,7 +74,7 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     // Smart width handling
     const widthClass = width === 'full' ? css.fullWidth : '';
     const classes = `${css.button} ${css[variant]} ${css[size]} ${widthClass} ${className}`;
-    
+
     const getInlineStyle = () => {
       if (typeof width === 'number') {
         return { width: `${width}px` };
@@ -84,13 +84,13 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
 
     if (href) {
       return (
-        <a 
+        <a
           ref={(el) => {
-            buttonRef.current = el;
+            (buttonRef as React.MutableRefObject<HTMLAnchorElement | null>).current = el;
             if (typeof ref === 'function') ref(el);
-            else if (ref) ref.current = el;
+            else if (ref) (ref as React.MutableRefObject<HTMLAnchorElement | null>).current = el;
           }}
-          href={href} 
+          href={href}
           className={classes}
           style={getInlineStyle()}
         >
@@ -101,11 +101,11 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     }
 
     return (
-      <button 
+      <button
         ref={(el) => {
-          buttonRef.current = el;
+          (buttonRef as React.MutableRefObject<HTMLButtonElement | null>).current = el;
           if (typeof ref === 'function') ref(el);
-          else if (ref) ref.current = el;
+          else if (ref) (ref as React.MutableRefObject<HTMLButtonElement | null>).current = el;
         }}
         onClick={onClick}
         className={classes}
