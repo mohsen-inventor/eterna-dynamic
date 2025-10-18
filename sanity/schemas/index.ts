@@ -1,24 +1,27 @@
-import page from './page';
-import post from './post';
-import siteSettings from './siteSettings';
-import service from './service';
-import servicesSection from './servicesSection';
-import solutionsSection from './solutionsSection';
-import processSection from './processSection';
+// ============================================
+// Sanity Schemas - Clean & Organized
+// ============================================
+// Only includes schemas specific to this app
 
+// Global site-wide settings
+import globalSettings from './globalSettings';
+
+// Page-level content (organized by page)
+import homePage from './homePage';
+
+// Reusable content elements
+import serviceCard from './serviceCard';
+
+// ============================================
+// Export Schema Types
+// ============================================
 export const schemaTypes = [
-  // Site content
-  siteSettings,
+  // 🌐 GLOBAL SETTINGS (site-wide)
+  globalSettings,
   
-  // Sections
-  servicesSection,
-  solutionsSection,
-  processSection,
+  // 🏠 PAGES (page content)
+  homePage,
   
-  // Individual items
-  service,
-  
-  // Pages & Blog
-  page,
-  post,
+  // 📦 ELEMENTS (reusable components)
+  serviceCard,
 ];

@@ -10,13 +10,14 @@ export default function GSAPLoader() {
     const interval = setInterval(() => {
       const gsap = (window as any).gsap;
       const ScrollTrigger = (window as any).ScrollTrigger;
+      const ScrollToPlugin = (window as any).ScrollToPlugin;
 
-      if (gsap && ScrollTrigger) {
+      if (gsap && ScrollTrigger && ScrollToPlugin) {
         clearInterval(interval);
         
         try {
-          gsap.registerPlugin(ScrollTrigger);
-          console.log('✅ GSAP ready');
+          gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+          console.log('✅ GSAP ready (ScrollTrigger + ScrollToPlugin)');
           
           // Dispatch custom event to notify components
           window.dispatchEvent(new Event('gsapReady'));

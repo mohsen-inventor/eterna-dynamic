@@ -1,117 +1,143 @@
 import { client } from './client';
 
 // ============================================
-// Homepage Data Query
+// Sanity Queries - Organized by Content Type
 // ============================================
 
-export async function getHomePageData() {
-  const [settings, servicesSection, services, solutionsSection, processSection] = await Promise.all([
-    // Site Settings (Hero Section)
-    client.fetch(`*[_type == "siteSettings"][0]{
-      heroTagline,
-      heroHeadline,
-      heroDescription
-    }`),
-    
-    // Services Section Header
-    client.fetch(`*[_type == "servicesSection"][0]{
-      title,
+// --------------------------------------------
+// GLOBAL SETTINGS
+// --------------------------------------------
+export async function getGlobalSettings() {
+  const query = `*[_type == "globalSettings"][0]{
+    siteName,
+    siteTagline,
+    seoTitle,
+    seoDescription,
+    seoKeywords,
+    "ogImageUrl": ogImage.asset->url,
+    twitterHandle
+  }`;
+  
+  return await client.fetch(query);
+}
+
+// --------------------------------------------
+// HOME PAGE (All sections in one document)
+// --------------------------------------------
+export async function getHomePage() {
+  const query = `*[_type == "homePage"][0]{
+    // Hero Section
+    heroSection {
       tagline,
-      description
-    }`),
+      headline,
+      description,
+      videoUrl
+    },
     
-    // Service Cards
-    client.fetch(`*[_type == "service"] | order(order asc){
-      _id,
-      stage,
-      title,
-      features,
-      order
-    }`),
-    
-    // Solutions Section
-    client.fetch(`*[_type == "solutionsSection"][0]{
-      badgeText,
-      title,
-      subtitle,
-      problems,
-      solutions
-    }`),
-    
-    // Process Section
-    client.fetch(`*[_type == "processSection"][0]{
-      badgeText,
+    // Services Section
+    servicesSection {
       title,
       tagline,
       description,
-      functions
-    }`)
-  ]);
+      "services": services[]-> {
+        _id,
+        stage,
+        title,
+        features,
+        order,
+        isPublished
+      }
+    },
+    
+    // Solutions Section
+    solutionsSection {
+      badge {
+        text,
+        icon
+      },
+      title,
+      subtitle,
+      problems,
+      solutions,
+      cosmosVideoUrl
+    },
+    
+    // Process Section
+    processSection {
+      badge {
+        text,
+        icon
+      },
+      title,
+      tagline,
+      description,
+      functions[] {
+        name,
+        items
+      }
+    }
+  }`;
+  
+  return await client.fetch(query);
+}
 
+// --------------------------------------------
+// SERVICE CARDS (Individual elements)
+// --------------------------------------------
+export async function getServiceCards() {
+  const query = `*[_type == "serviceCard" && isPublished == true] | order(order asc) {
+    _id,
+    stage,
+    title,
+    features,
+    order
+  }`;
+  
+  return await client.fetch(query);
+}
+
+// --------------------------------------------
+// COMBINED QUERY FOR HOME PAGE DATA
+// (For backward compatibility with current app)
+// --------------------------------------------
+export async function getHomePageData() {
+  const homeData = await getHomePage();
+  
+  if (!homeData) {
+    return {
+      settings: null,
+      servicesSection: null,
+      services: [],
+      solutionsSection: null,
+      processSection: null,
+    };
+  }
+  
   return {
-    settings,
-    servicesSection,
-    services,
-    solutionsSection,
-    processSection
+    settings: {
+      heroTagline: homeData.heroSection?.tagline,
+      heroHeadline: homeData.heroSection?.headline,
+      heroDescription: homeData.heroSection?.description,
+    },
+    servicesSection: {
+      title: homeData.servicesSection?.title,
+      tagline: homeData.servicesSection?.tagline,
+      description: homeData.servicesSection?.description,
+    },
+    services: homeData.servicesSection?.services?.filter((s: any) => s.isPublished !== false) || [],
+    solutionsSection: {
+      badgeText: homeData.solutionsSection?.badge?.text,
+      title: homeData.solutionsSection?.title,
+      subtitle: homeData.solutionsSection?.subtitle,
+      problems: homeData.solutionsSection?.problems,
+      solutions: homeData.solutionsSection?.solutions,
+    },
+    processSection: {
+      badgeText: homeData.processSection?.badge?.text,
+      title: homeData.processSection?.title,
+      tagline: homeData.processSection?.tagline,
+      description: homeData.processSection?.description,
+      functions: homeData.processSection?.functions,
+    },
   };
 }
-
-// ============================================
-// Example: Get all posts
-// ============================================
-
-export async function getAllPosts() {
-  return client.fetch(`*[_type == "post"] | order(publishedAt desc){
-    _id,
-    title,
-    slug,
-    author->{
-      name,
-      image
-    },
-    mainImage,
-    categories[]->{
-      title
-    },
-    publishedAt
-  }`);
-}
-
-// ============================================
-// Example: Get single post by slug
-// ============================================
-
-export async function getPostBySlug(slug: string) {
-  return client.fetch(
-    `*[_type == "post" && slug.current == $slug][0]{
-      _id,
-      title,
-      slug,
-      author->{
-        name,
-        image
-      },
-      mainImage,
-      categories[]->{
-        title
-      },
-      publishedAt,
-      body
-    }`,
-    { slug }
-  );
-}
-
-// ============================================
-// Example: Get all pages
-// ============================================
-
-export async function getAllPages() {
-  return client.fetch(`*[_type == "page"]{
-    _id,
-    title,
-    slug
-  }`);
-}
-

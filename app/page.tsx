@@ -1,5 +1,6 @@
 import { Header, Hero, Services, Solutions, Process } from '@/components';
 import GSAPLoader from '@/components/GSAPLoader';
+import SmoothScroll from '@/components/SmoothScroll';
 import { getHomePageData } from '@/lib/sanity/queries';
 import {
   fallbackHeroData,
@@ -47,6 +48,7 @@ export default async function Home() {
   return (
     <>
       <GSAPLoader />
+      <SmoothScroll />
       <Header />
       
       <main id="main-content">

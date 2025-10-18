@@ -36,6 +36,10 @@ export default function RootLayout({
           src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" 
           strategy="afterInteractive"
         />
+        <Script 
+          src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js" 
+          strategy="afterInteractive"
+        />
         
         {/* Skip to main content link for accessibility */}
         <a href="#main-content" className="skip-link" tabIndex={1}>

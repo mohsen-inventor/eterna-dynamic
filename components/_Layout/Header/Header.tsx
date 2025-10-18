@@ -30,23 +30,29 @@ export default function Header() {
 
         if (currentScrollY > 100 && !isNavbarCompact) {
           isNavbarCompact = true;
-          navbar.classList.add(css.navbarGlass);
           
+          // Animate width and apply glass effect at the same time
           gsap.to(navbar, {
             maxWidth: '1100px',
             duration: 0.6,
             ease: 'expo.out',
-            overwrite: 'auto'
+            overwrite: 'auto',
+            onStart: () => {
+              navbar.classList.add(css.navbarGlass);
+            }
           });
         } else if (currentScrollY <= 100 && isNavbarCompact) {
           isNavbarCompact = false;
-          navbar.classList.remove(css.navbarGlass);
           
+          // Animate width and remove glass effect at the same time
           gsap.to(navbar, {
             maxWidth: '1280px',
             duration: 0.7,
             ease: 'back.out(1.2)',
-            overwrite: 'auto'
+            overwrite: 'auto',
+            onStart: () => {
+              navbar.classList.remove(css.navbarGlass);
+            }
           });
         }
       };
