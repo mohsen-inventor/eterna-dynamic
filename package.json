@@ -14,9 +14,10 @@
   "dependencies": {
     "@portabletext/react": "^3.1.0",
     "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^4.10.3",
     "gsap": "^3.12.5",
     "next": "^15.0.0",
-    "next-sanity": "^9.4.7",
+    "next-sanity": "^9.12.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
@@ -28,7 +29,7 @@
     "dotenv": "^17.2.3",
     "eslint": "^8",
     "eslint-config-next": "15.0.0",
-    "sanity": "^3.57.4",
+    "sanity": "^3.99.0",
     "sass": "^1.77.8",
     "tsx": "^4.20.6",
     "typescript": "^5"

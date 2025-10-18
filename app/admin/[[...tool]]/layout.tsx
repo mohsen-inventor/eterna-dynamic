@@ -1,5 +1,3 @@
-import './studio.css';
-
 export const metadata = {
   title: 'Content | EternaCloud',
 };
@@ -9,7 +7,13 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <html lang="en">
+      <body style={{ margin: 0, padding: 0, height: '100vh', overflow: 'hidden' }}>
+        {children}
+      </body>
+    </html>
+  );
 }
 
 
