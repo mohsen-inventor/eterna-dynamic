@@ -19,129 +19,181 @@ export default function AnimationInit() {
     try {
       gsap.registerPlugin(ScrollTrigger);
 
+      // Hero Section Animations
+      const heroSection = document.querySelector(`.${css.hero}`) || document.getElementById('hero');
+      if (heroSection) {
+        const heroTagline = heroSection.querySelector('[class*="heroTagline"]');
+        const heroHeadline = heroSection.querySelector('[class*="heroHeadline"]');
+        const heroDescription = heroSection.querySelector('[class*="heroDescription"]');
+
+        if (heroTagline) {
+          gsap.fromTo(heroTagline,
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.3 }
+          );
+        }
+
+        if (heroHeadline) {
+          gsap.fromTo(heroHeadline,
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.5 }
+          );
+        }
+
+        if (heroDescription) {
+          gsap.fromTo(heroDescription,
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.7 }
+          );
+        }
+      }
+
       // Services Section Animations
-      const servicesSection = document.querySelector('.services');
+      const servicesSection = document.querySelector('[class*="services"]');
       if (servicesSection) {
-        const header = servicesSection.querySelector('.services__header');
-        const serviceCards = servicesSection.querySelectorAll('.service-card');
+        const header = servicesSection.querySelector('[class*="servicesHeader"]');
+        const serviceCards = servicesSection.querySelectorAll('[class*="serviceCard"]');
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: servicesSection,
-            start: 'top 90%',
-            end: 'bottom 10%',
+            start: 'top 80%',
+            end: 'bottom 20%',
             toggleActions: 'play none none reverse'
           }
         });
 
         if (header) {
           tl.fromTo(header, 
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
           );
         }
 
         if (serviceCards.length) {
           tl.fromTo(serviceCards,
-            { opacity: 0, y: 20 },
+            { opacity: 0, y: 50, scale: 0.95 },
             { 
               opacity: 1, 
               y: 0, 
-              duration: 0.3, 
-              ease: 'power2.out',
-              stagger: 0.08
-            },
-            '-=0.2'
-          );
-        }
-      }
-
-      // Solutions Section Animations
-      const solutionsSection = document.querySelector('.solutions');
-      if (solutionsSection) {
-        const header = solutionsSection.querySelector('.solutions__header');
-        const problems = solutionsSection.querySelectorAll('.solutions__problems .solutions__card');
-        const cosmos = solutionsSection.querySelector('.solutions__cosmos');
-        const solutions = solutionsSection.querySelectorAll('.solutions__solutions .solutions__card');
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: solutionsSection,
-            start: 'top 90%',
-            end: 'bottom 10%',
-            toggleActions: 'play none none reverse'
-          }
-        });
-
-        if (header) {
-          tl.fromTo(header, 
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }
-          );
-        }
-
-        if (problems.length) {
-          tl.fromTo(problems,
-            { opacity: 0, x: -20 },
-            { 
-              opacity: 1, 
-              x: 0, 
-              duration: 0.3, 
-              ease: 'power2.out',
-              stagger: 0.06
-            },
-            '-=0.2'
-          );
-        }
-
-        if (cosmos) {
-          tl.fromTo(cosmos,
-            { opacity: 0, scale: 0.9 },
-            { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' },
-            '-=0.15'
-          );
-        }
-
-        if (solutions.length) {
-          tl.fromTo(solutions,
-            { opacity: 0, x: 20 },
-            { 
-              opacity: 1, 
-              x: 0, 
-              duration: 0.3, 
-              ease: 'power2.out',
-              stagger: 0.06
+              scale: 1,
+              duration: 0.5, 
+              ease: 'power3.out',
+              stagger: 0.1
             },
             '-=0.3'
           );
         }
       }
 
+      // Solutions Section Animations
+      const solutionsSection = document.querySelector('[class*="solutions"]');
+      if (solutionsSection) {
+        const header = solutionsSection.querySelector('[class*="solutionsHeader"]');
+        const problems = solutionsSection.querySelectorAll('[class*="solutionsProblems"] [class*="solutionsCard"]');
+        const cosmos = solutionsSection.querySelector('[class*="solutionsCosmos"]');
+        const solutions = solutionsSection.querySelectorAll('[class*="solutionsSolutions"] [class*="solutionsCard"]');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: solutionsSection,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse'
+          }
+        });
+
+        if (header) {
+          tl.fromTo(header, 
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
+          );
+        }
+
+        if (problems.length) {
+          tl.fromTo(problems,
+            { opacity: 0, x: -50, scale: 0.95 },
+            { 
+              opacity: 1, 
+              x: 0,
+              scale: 1, 
+              duration: 0.5, 
+              ease: 'power3.out',
+              stagger: 0.08
+            },
+            '-=0.3'
+          );
+        }
+
+        if (cosmos) {
+          tl.fromTo(cosmos,
+            { opacity: 0, scale: 0.8, rotate: -10 },
+            { opacity: 1, scale: 1, rotate: 0, duration: 0.8, ease: 'power3.out' },
+            '-=0.4'
+          );
+        }
+
+        if (solutions.length) {
+          tl.fromTo(solutions,
+            { opacity: 0, x: 50, scale: 0.95 },
+            { 
+              opacity: 1, 
+              x: 0,
+              scale: 1, 
+              duration: 0.5, 
+              ease: 'power3.out',
+              stagger: 0.08
+            },
+            '-=0.6'
+          );
+        }
+      }
+
       // Process Section Animations
-      const processSection = document.querySelector('.process');
+      const processSection = document.querySelector('[class*="process"]');
       if (processSection) {
-        const observerOptions = {
-          threshold: 0.05,
-          rootMargin: '0px 0px -10% 0px'
-        };
+        const header = processSection.querySelector('[class*="processHeader"]');
+        const functions = processSection.querySelectorAll('[class*="processFunction"]');
+        const wave = processSection.querySelector('[class*="processWave"]');
 
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate-in');
-            } else {
-              entry.target.classList.remove('animate-in');
-            }
-          });
-        }, observerOptions);
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: processSection,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse'
+          }
+        });
 
-        const header = processSection.querySelector('.process__header');
-        const functions = processSection.querySelectorAll('.process__function');
-        const wave = processSection.querySelector('.process__wave');
+        if (header) {
+          tl.fromTo(header, 
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
+          );
+        }
 
-        if (header) observer.observe(header);
-        functions.forEach(func => observer.observe(func));
-        if (wave) observer.observe(wave);
+        if (functions.length) {
+          tl.fromTo(functions,
+            { opacity: 0, y: 60, scale: 0.9 },
+            { 
+              opacity: 1, 
+              y: 0,
+              scale: 1, 
+              duration: 0.6, 
+              ease: 'power3.out',
+              stagger: 0.12
+            },
+            '-=0.3'
+          );
+        }
+
+        if (wave) {
+          tl.fromTo(wave,
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+            '-=0.5'
+          );
+        }
       }
 
       // Header scroll behavior
@@ -178,7 +230,7 @@ export default function AnimationInit() {
 
       return () => {
         window.removeEventListener('scroll', handleScroll);
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        ScrollTrigger.getAll().forEach((trigger: any) => trigger.kill());
       };
     } catch (error) {
       console.error('Error initializing GSAP animations:', error);
