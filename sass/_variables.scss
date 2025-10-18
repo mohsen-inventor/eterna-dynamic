@@ -1,61 +1,62 @@
 // ============================================
 // Design Tokens - Variables
+// Only colors actually used in the app
 // ============================================
 
 // ----------------
 // BASE COLOR PALETTE (by name)
-// Define all colors by their actual name/hex first
+// All colors explicitly used in the application
 // ----------------
 
 // Grayscale
 $white: #ffffff;
 $black: #000000;
-$gray-50: #f9fafb;
-$gray-100: #f5f5f5;
-$gray-200: #e5e7eb;
-$gray-300: #d1d5db;
-$gray-400: #9ca3af;
-$gray-500: #6b7280;
-$gray-600: #666666;
-$gray-700: #4b5563;
-$gray-800: #333333;
-$gray-900: #1a1a1a;
-$gray-950: #0a0a0a;
+$gray-50: #f9fafb;        // Not used yet but very light
+$gray-100: #f8fafc;       // Used in gradients
+$gray-200: #f8f9fa;       // Input backgrounds
+$gray-300: #f5f5f5;       // Light backgrounds
+$gray-400: #e0e0e0;       // Borders
+$gray-500: #999999;       // Placeholders
+$gray-600: #888888;       // Muted text
+$gray-700: #6b7280;       // Card icon text
+$gray-800: #666666;       // Text light
+$gray-850: #374151;       // Process items text
+$gray-900: #333333;       // Body text
+$gray-950: #1e293b;       // Section titles
+$gray-975: #1a1a1a;       // Primary dark
+$gray-985: #0a0a0a;       // Very dark backgrounds
 
-// Purple Palette
-$purple-300: #c4b5fd;
-$purple-400: #a78bfa;
-$purple-500: #8B5CF6;  // Main purple
-$purple-600: #7c3aed;
-$purple-700: #6d28d9;
-
-// Blue Palette
-$blue-300: #93c5fd;
-$blue-400: #60a5fa;
-$blue-500: #3B82F6;   // Main blue
-$blue-600: #2563eb;
-$blue-700: #1d4ed8;
+// Purple Palette (Brand)
+$purple-700: #6D28D9;     // Darkest purple (scrollbar)
+$purple-600: #7C3AED;     // Dark purple (gradients, active states)
+$purple-500: #8B5CF6;     // Main brand purple ⭐
+$purple-400: #8A56F0;     // Logo gradient purple
 
 // Indigo Palette
-$indigo-400: #818cf8;
-$indigo-500: #6366f1;
-$indigo-600: #4f46e5;
-$indigo-700: #4338ca;
+$indigo-700: #4338CA;     // Dark indigo (scrollbar)
+$indigo-600: #4F46E5;     // Medium indigo (scrollbar)
+$indigo-500: #6366F1;     // Light indigo (gradients)
+
+// Blue Palette
+$blue-500: #3B82F6;       // Main blue (gradients, buttons) ⭐
+$blue-400: #4A70F7;       // Logo gradient blue
 
 // Cyan Palette
-$cyan-300: #67e8f9;
-$cyan-400: #22d3ee;
-$cyan-500: #00D4FF;   // Main cyan
-$cyan-600: #0891b2;
+$cyan-500: #00D4FF;       // Accent cyan (gradients, highlights) ⭐
 
 // Orange/Amber Palette
-$orange-400: #fb923c;
-$orange-500: #F59E0B;  // Main orange
-$orange-600: #ea580c;
+$orange-500: #F59E0B;     // Main orange (gradients) ⭐
+$orange-600: #f97316;     // Dark orange (rotating circles)
+$orange-400: #F7B04A;     // Logo gradient orange
 
-// Navy/Dark Blue
-$navy-500: #2A2A60;
-$navy-600: #1e1e4a;
+// Yellow Palette
+$yellow-500: #eab308;     // Yellow (rotating circles, gradients)
+
+// Pink Palette
+$pink-500: #E050B0;       // Logo gradient pink
+
+// Navy
+$navy-500: #2A2A60;       // Brand text color
 
 // ----------------
 // SEMANTIC/FUNCTIONAL COLORS
@@ -63,9 +64,9 @@ $navy-600: #1e1e4a;
 // ----------------
 
 // Primary Brand Colors
-$primary-color: $gray-900;           // #1a1a1a - Main brand color
-$secondary-color: $white;            // #ffffff - Secondary/contrast
-$accent-color: $cyan-500;            // #00d4ff - Accent highlights
+$primary-color: $gray-975;        // #1a1a1a - Main brand color
+$secondary-color: $white;         // #ffffff - Secondary/contrast
+$accent-color: $cyan-500;         // #00d4ff - Accent highlights
 
 // Interactive Colors
 $interactive-primary: $purple-500;   // #8B5CF6 - Buttons, links, interactions
@@ -77,24 +78,34 @@ $gradient-start: $blue-500;          // #3B82F6
 $gradient-mid: $purple-500;          // #8B5CF6
 $gradient-end: $orange-500;          // #F59E0B
 $gradient-cyan: $cyan-500;           // #00D4FF
+$gradient-orange: $orange-600;       // #f97316
+$gradient-yellow: $yellow-500;       // #eab308
 
 // Text Colors
-$text-color: $gray-800;              // #333333 - Body text
-$text-light: $gray-600;              // #666666 - Secondary text
-$text-lighter: $gray-500;            // #6b7280 - Tertiary text
-$text-muted: rgba($gray-600, 0.6);  // Muted text
+$text-color: $gray-900;              // #333333 - Body text
+$text-light: $gray-800;              // #666666 - Secondary text
+$text-muted: $gray-600;              // #888888 - Muted text
+$text-placeholder: $gray-500;        // #999999 - Placeholders
+$text-section-title: $gray-950;      // #1e293b - Section titles
+$text-item: $gray-850;               // #374151 - Process items
+$text-icon: $gray-700;               // #6b7280 - Icon text
 
 // Background Colors
-$bg-dark: $gray-950;                 // #0a0a0a - Dark backgrounds
-$bg-light: $gray-100;                // #f5f5f5 - Light backgrounds
+$bg-dark: $gray-985;                 // #0a0a0a - Dark backgrounds
+$bg-light: $gray-300;                // #f5f5f5 - Light backgrounds
 $bg-card: $white;                    // #ffffff - Card backgrounds
 $bg-overlay: rgba($black, 0.5);     // Overlay backgrounds
+$bg-input: $gray-200;                // #f8f9fa - Input backgrounds
+$bg-gradient-light: $gray-100;       // #f8fafc - Light gradient backgrounds
 
 // Border Colors
-$border-light: rgba($black, 0.05);
+$border-light: $gray-400;            // #e0e0e0 - Light borders
 $border-medium: rgba($black, 0.1);
 $border-dark: rgba($black, 0.2);
 $border-interactive: rgba($purple-500, 0.2);
+
+// Navy Brand
+$brand-navy: $navy-500;              // #2A2A60 - Brand text
 
 // ----------------
 // Typography
