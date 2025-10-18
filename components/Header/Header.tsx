@@ -1,20 +1,50 @@
 'use client';
 
-import { useState } from 'react';
-import styles from './Header.module.scss';
+import { useState, useEffect } from 'react';
+import css from './Header.module.scss';
 import SearchModal from '../SearchModal/SearchModal';
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  useEffect(() => {
+    if (typeof window === 'undefined' || !(window as any).gsap) return;
+    
+    const gsap = (window as any).gsap;
+    
+    // Initialize Talk Button Animation
+    const talkButton = document.querySelector('.btn--primary');
+    const gradientOverlay = talkButton?.querySelector('.btn__gradient-overlay');
+    
+    if (talkButton && gradientOverlay) {
+      talkButton.addEventListener('mouseenter', () => {
+        gsap.to(gradientOverlay, {
+          opacity: 1,
+          backgroundPosition: '100% 50%',
+          duration: 0.6,
+          ease: 'power2.out'
+        });
+      });
+      
+      talkButton.addEventListener('mouseleave', () => {
+        gsap.to(gradientOverlay, {
+          opacity: 0,
+          backgroundPosition: '0% 50%',
+          duration: 0.6,
+          ease: 'power2.inOut'
+        });
+      });
+    }
+  }, []);
+
   return (
     <>
-      <header className={`${styles.header} header`} role="banner">
-        <nav className={`${styles.navbar} navbar`} aria-label="Main navigation">
+      <header className="header" role="banner">
+        <nav className="navbar" aria-label="Main navigation">
           {/* Logo/Brand */}
-          <a href="#" className={styles.navbar__brand} aria-label="EternaCloud Home">
-            <div className={styles.navbar__logo}>
-              <svg className={styles.navbar__logoIcon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a href="#" className="navbar__brand" aria-label="EternaCloud Home">
+            <div className="navbar__logo">
+              <svg className="navbar__logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" style={{ stopColor: '#4A70F7', stopOpacity: 1 }} />
@@ -26,32 +56,32 @@ export default function Header() {
                 </defs>
                 <circle cx="12" cy="12" r="10" stroke="url(#logoGradient)" strokeWidth="2" fill="none"/>
               </svg>
-              <span className={styles.navbar__brandText}>EternaCloud</span>
+              <span className="navbar__brand-text">EternaCloud</span>
             </div>
           </a>
           
           {/* Desktop Menu */}
-          <div className={styles.navbar__menu} id="navbarMenu">
-            <ul className={styles.navbar__nav} role="menubar">
+          <div className="navbar__menu" id="navbarMenu">
+            <ul className="navbar__nav" role="menubar">
               <li role="none">
-                <span className={styles.navbar__link} role="menuitem">What We Do</span>
+                <span className="navbar__link" role="menuitem">What We Do</span>
               </li>
               <li role="none">
-                <span className={styles.navbar__link} role="menuitem">Our Approach</span>
+                <span className="navbar__link" role="menuitem">Our Approach</span>
               </li>
               <li role="none">
-                <span className={styles.navbar__link} role="menuitem">About Us</span>
+                <span className="navbar__link" role="menuitem">About Us</span>
               </li>
               <li role="none">
-                <span className={styles.navbar__link} role="menuitem">Insights</span>
+                <span className="navbar__link" role="menuitem">Insights</span>
               </li>
             </ul>
           </div>
           
           {/* Actions */}
-          <div className={styles.navbar__actions}>
+          <div className="navbar__actions">
             <button 
-              className={styles.navbar__search} 
+              className="navbar__search" 
               aria-label="Search"
               onClick={() => setIsSearchOpen(true)}
             >
@@ -60,9 +90,9 @@ export default function Header() {
                 <path d="m21 21-4.35-4.35" stroke="currentColor" strokeWidth="2"/>
               </svg>
             </button>
-            <a href="#contact" className={styles.btn}>
-              <span className={styles.btn__gradientOverlay}></span>
-              <span className={styles.btn__text}>LET&apos;S TALK</span>
+            <a href="#contact" className="btn btn--primary">
+              <span className="btn__gradient-overlay"></span>
+              <span className="btn__text">LET&apos;S TALK</span>
             </a>
           </div>
         </nav>

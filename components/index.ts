@@ -1,5 +1,4 @@
 export { default as Header } from './Header/Header';
-export { default as Footer } from './Footer/Footer';
 export { default as SearchModal } from './SearchModal/SearchModal';
 export { default as Hero } from './Hero/Hero';
 export { default as Services } from './Services/Services';

@@ -262,3 +262,23 @@ ul, ol {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
 }
+
+// Gradient Text Effects
+.gradient-text {
+  background: linear-gradient(90deg, #00D4FF 0%, #8B5CF6 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}

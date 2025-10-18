@@ -1,4 +1,4 @@
-import styles from './Hero.module.scss';
+import css from './Hero.module.scss';
 
 interface HeroProps {
   tagline: string;
@@ -9,21 +9,21 @@ interface HeroProps {
 
 export default function Hero({ tagline, headline, description, videoUrl = '/videos/hero-bg.webm' }: HeroProps) {
   return (
-    <section className={styles.hero} id="hero">
+    <section className={css.hero} id="hero">
       {/* Background Video */}
-      <video className={styles.hero__video} autoPlay muted loop playsInline>
+      <video className={css.heroVideo} autoPlay muted loop playsInline>
         <source src={videoUrl} type="video/webm" />
       </video>
       
       {/* Background Overlay */}
-      <div className={styles.hero__overlay}></div>
+      <div className={css.heroOverlay}></div>
       
-      <div className={styles.hero__content}>
-        <div className={styles.hero__tagline}>
-          <span className={styles.gradientText}>{tagline}</span>
+      <div className={css.heroContent}>
+        <div className={css.heroTagline}>
+          <span className="gradient-text">{tagline}</span>
         </div>
-        <h1 className={styles.hero__headline}>{headline}</h1>
-        <p className={styles.hero__description}>{description}</p>
+        <h1 className={css.heroHeadline}>{headline}</h1>
+        <p className={css.heroDescription}>{description}</p>
       </div>
     </section>
   );

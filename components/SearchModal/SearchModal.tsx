@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import styles from './SearchModal.module.scss';
+import css from './SearchModal.module.scss';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -29,11 +29,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className={styles.searchModal} aria-hidden={!isOpen}>
-      <div className={styles.searchModal__overlay} onClick={onClose} />
-      <div className={styles.searchModal__content}>
+    <div className="search-modal search-modal--active" aria-hidden={!isOpen}>
+      <div className="search-modal__overlay" onClick={onClose} />
+      <div className="search-modal__content">
         <button 
-          className={styles.searchModal__close} 
+          className="search-modal__close" 
           onClick={onClose}
           aria-label="Close search"
         >
@@ -41,12 +41,13 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
-        <div className={styles.searchModal__inputContainer}>
+        <div className="search-modal__input-container">
           <input 
             ref={inputRef}
             type="text" 
-            className={styles.searchModal__input} 
+            className="search-modal__input" 
             placeholder="Type to search"
+            id="searchInput"
           />
         </div>
       </div>
