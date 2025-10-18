@@ -2,6 +2,7 @@
 // Reusable Mixins
 // ============================================
 
+@import 'config';
 @import 'variables';
 
 // ----------------
@@ -123,39 +124,39 @@
 // Glass Effect (Apple Style)
 // ----------------
 
-@mixin glass-effect($opacity: 0.72, $blur: 20px) {
-  backdrop-filter: blur($blur) saturate(180%);
-  -webkit-backdrop-filter: blur($blur) saturate(180%);
+@mixin glass-effect($opacity: $glass-opacity, $blur: $glass-blur) {
+  backdrop-filter: $blur $glass-saturation;
+  -webkit-backdrop-filter: $blur $glass-saturation;
   background-color: rgba(255, 255, 255, $opacity);
 }
 
 @mixin frosted-glass {
-  @include glass-effect(0.75, 30px);
+  @include glass-effect($glass-opacity-strong, $glass-blur-strong);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.08),
     0 1px 0 rgba(255, 255, 255, 0.5) inset,
     0 -1px 0 rgba(0, 0, 0, 0.02) inset;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid $glass-border;
 }
 
 // ----------------
 // Animations
 // ----------------
 
-@mixin transition($properties: all, $duration: 0.3s, $timing: ease) {
+@mixin transition($properties: all, $duration: $transition-base, $timing: $transition-timing-default) {
   transition: $properties $duration $timing;
 }
 
 @mixin smooth-transition($properties: all) {
-  transition: $properties 0.3s ease-in-out;
+  transition: $properties $transition-base $transition-timing-ease-in-out;
 }
 
 @mixin spring-transition($properties: all) {
-  transition: $properties 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: $properties 0.4s $transition-timing-spring;
 }
 
 @mixin hover-lift($distance: -4px) {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform $transition-base $transition-timing-default, box-shadow $transition-base $transition-timing-default;
 
   &:hover {
     transform: translateY($distance);
@@ -168,7 +169,7 @@
 }
 
 @mixin hover-scale($scale: 1.05) {
-  transition: transform 0.3s ease;
+  transition: transform $transition-base $transition-timing-default;
 
   &:hover {
     transform: scale($scale);
@@ -277,8 +278,8 @@
 // Focus States
 // ----------------
 
-@mixin focus-ring($color: $primary-color, $width: 3px, $offset: 2px) {
-  outline: $width solid rgba($color, 0.5);
+@mixin focus-ring($color: $primary-color, $width: $focus-ring-width, $offset: $focus-ring-offset) {
+  outline: $width solid rgba($color, $focus-ring-opacity);
   outline-offset: $offset;
 }
 
