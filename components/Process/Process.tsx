@@ -1,4 +1,4 @@
-import css from './Process.module.scss';
+import './Process.module.scss';
 
 interface ProcessFunction {
   name: string;

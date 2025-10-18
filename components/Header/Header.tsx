@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import css from './Header.module.scss';
+import './Header.module.scss';
 import SearchModal from '../SearchModal/SearchModal';
 
 export default function Header() {

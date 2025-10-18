@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import css from './SearchModal.module.scss';
+import './SearchModal.module.scss';
 
 interface SearchModalProps {
   isOpen: boolean;

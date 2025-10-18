@@ -1,4 +1,4 @@
-import css from './Solutions.module.scss';
+import './Solutions.module.scss';
 
 interface SolutionsProps {
   badgeText: string;

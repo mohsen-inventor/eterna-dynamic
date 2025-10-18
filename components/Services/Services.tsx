@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import css from './Services.module.scss';
+import './Services.module.scss';
 
 interface Service {
   _id: string;
