@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import './globals.scss';
+import '@/sass/global.scss';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
@@ -25,12 +25,18 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" type="image/avif" href="/images/favicon.avif" />
-        
-        {/* GSAP */}
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" strategy="beforeInteractive" />
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" strategy="beforeInteractive" />
       </head>
       <body suppressHydrationWarning>
+        {/* GSAP Scripts - Load asynchronously */}
+        <Script 
+          src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" 
+          strategy="afterInteractive"
+        />
+        <Script 
+          src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" 
+          strategy="afterInteractive"
+        />
+        
         {/* Skip to main content link for accessibility */}
         <a href="#main-content" className="skip-link" tabIndex={1}>
           Skip to main content

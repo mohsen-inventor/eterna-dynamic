@@ -1,0 +1,355 @@
+@import '@/sass/index';
+
+.services {
+  position: relative;
+  min-height: 100vh;
+  padding: $spacing-3xl 0;
+  background: $black url('/images/light-bg.avif');
+  background-size: 125% 100%;
+  background-position: 50% 20%;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+}
+
+.servicesHeader {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @include respond-to-max('lg') {
+    margin-bottom: 48px;
+  }
+  
+  @include respond-to-max('md') {
+    margin-bottom: 36px;
+  }
+}
+
+.servicesTitle {
+  font-size: 48px;
+  font-weight: 600;
+  color: $secondary-color;
+  margin-bottom: 4px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-family: $font-primary;
+  
+  @include respond-to-max('lg') {
+    font-size: 40px;
+    margin-bottom: 4px;
+  }
+  
+  @include respond-to-max('md') {
+    font-size: 32px;
+    margin-bottom: 4px;
+  }
+  
+  @include respond-to-max('sm') {
+    font-size: 28px;
+  }
+}
+
+.servicesTagline {
+  margin-bottom: 12px;
+  
+  @include respond-to-max('lg') {
+    margin-bottom: 10px;
+  }
+  
+  @include respond-to-max('md') {
+    margin-bottom: 8px;
+  }
+  
+  :global(.gradient-text) {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-family: $font-primary;
+    
+    @include respond-to-max('lg') {
+      font-size: 40px;
+    }
+    
+    @include respond-to-max('md') {
+      font-size: 32px;
+    }
+    
+    @include respond-to-max('sm') {
+      font-size: 28px;
+    }
+  }
+}
+
+.servicesDescription {
+  font-size: 18px;
+  color: rgba($white, 0.6);
+  line-height: 1.6;
+  margin: 0 auto;
+  font-weight: 400;
+  font-family: $font-primary;
+  
+  @include respond-to-max('lg') {
+    font-size: 17px;
+  }
+  
+  @include respond-to-max('md') {
+    font-size: 16px;
+  }
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  
+  @include respond-to-max('lg') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+  }
+  
+  @include respond-to-max('md') {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 600px;
+  }
+}
+
+.serviceCard {
+  position: relative;
+  background: rgba($black, 0.4);
+  border-radius: 20px;
+  padding: 32px 28px 100px 28px;
+  border: 1px solid rgba($purple-500, 0.2);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  min-height: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  --card-bg-opacity: 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba($purple-500, 0.1) 0%, transparent 50%);
+    opacity: var(--card-bg-opacity, 0);
+    z-index: 1;
+  }
+  
+  &:hover {
+    border-color: rgba($purple-500, 0.4);
+    box-shadow: 0 20px 40px rgba($black, 0.3);
+  }
+  
+  @include respond-to-max('lg') {
+    padding: $spacing-lg;
+  }
+  
+  @include respond-to-max('md') {
+    padding: $spacing-md;
+    border-radius: 16px;
+  }
+}
+
+.active {
+  background: linear-gradient(135deg, $purple-500 0%, $purple-600 100%);
+  border-color: rgba($white, 0.2);
+  box-shadow: 0 20px 60px rgba($purple-500, 0.5);
+  
+  .serviceCardStageText,
+  .serviceCardTitle,
+  .serviceCardFeature {
+    color: $white !important;
+  }
+  
+  .serviceCardStageIcon {
+    border-color: rgba($white, 0.4);
+    color: $white;
+    
+    &::before {
+      background: rgba($white, 0.3);
+      opacity: 1;
+    }
+  }
+  
+  // Button inside active card
+  .serviceCardBtn {
+    :global(.button) {
+      background: $white !important;
+      color: $purple-500 !important;
+      border: 1px solid $white !important;
+      
+      :global(.buttonText) {
+        color: $purple-500 !important;
+      }
+      
+      &:hover {
+        background: rgba($white, 0.9) !important;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+.serviceCardStage {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.serviceCardStageIcon {
+  width: 40px;
+  height: 40px;
+  color: $purple-500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba($purple-500, 0.3);
+  border-radius: 50%;
+  background: transparent;
+  position: relative;
+  flex-shrink: 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $purple-500 0%, $indigo-500 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.servicesGrid .serviceCard:nth-child(1) .serviceCardStageIcon::before {
+  opacity: 0.25;
+}
+
+.servicesGrid .serviceCard:nth-child(2) .serviceCardStageIcon::before {
+  opacity: 0.5;
+}
+
+.servicesGrid .serviceCard:nth-child(3) .serviceCardStageIcon::before {
+  opacity: 0.75;
+}
+
+.servicesGrid .serviceCard:nth-child(4) .serviceCardStageIcon::before {
+  opacity: 1;
+}
+
+.serviceCardStageText {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba($white, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: $font-primary;
+}
+
+.serviceCardTitle {
+  font-size: 28px;
+  font-weight: 400;
+  color: $secondary-color;
+  margin-bottom: 32px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  font-family: $font-primary;
+  position: relative;
+  z-index: 2;
+  
+  @include respond-to-max('lg') {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+  
+  @include respond-to-max('md') {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+}
+
+.serviceCardFeatures {
+  list-style: none;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+  padding: 0;
+}
+
+.serviceCardFeature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: rgba($white, 0.9);
+  font-family: $font-primary;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.serviceCardCheck {
+  width: 24px;
+  height: 24px;
+  color: $purple-500;
+  flex-shrink: 0;
+  background: rgba($purple-500, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.serviceCardBtn {
+  position: absolute;
+  bottom: 32px;
+  left: 28px;
+  right: 28px;
+  z-index: 2;
+  
+  // Button fills container
+  :global(.button) {
+    width: 100% !important;
+    padding: 0 !important;
+    min-width: unset !important;
+    margin: 0 !important;
+  }
+}

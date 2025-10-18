@@ -1,0 +1,93 @@
+@import '@/sass/index';
+
+.sectionHeader {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 60px;
+  
+  @include respond-to-max('lg') {
+    margin-bottom: 48px;
+  }
+  
+  @include respond-to-max('md') {
+    margin-bottom: 36px;
+  }
+  
+  &.center {
+    text-align: center;
+  }
+  
+  &.left {
+    text-align: left;
+  }
+  
+  &.right {
+    text-align: right;
+  }
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-family: $font-primary;
+  
+  @include respond-to-max('lg') {
+    font-size: 40px;
+  }
+  
+  @include respond-to-max('md') {
+    font-size: 32px;
+  }
+  
+  @include respond-to-max('sm') {
+    font-size: 28px;
+  }
+}
+
+.subtitle {
+  margin-bottom: 12px;
+  
+  @include respond-to-max('lg') {
+    margin-bottom: 10px;
+  }
+  
+  @include respond-to-max('md') {
+    margin-bottom: 8px;
+  }
+  
+  :global(.gradient-text) {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-family: $font-primary;
+    
+    @include respond-to-max('lg') {
+      font-size: 40px;
+    }
+    
+    @include respond-to-max('md') {
+      font-size: 32px;
+    }
+    
+    @include respond-to-max('sm') {
+      font-size: 28px;
+    }
+  }
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 400;
+  font-family: $font-primary;
+  
+  @include respond-to-max('md') {
+    font-size: 16px;
+  }
+}
+

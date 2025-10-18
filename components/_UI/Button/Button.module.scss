@@ -1,0 +1,83 @@
+@import '@/sass/index';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  font-family: $font-primary;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  @include smooth-transition(all);
+  
+  &.primary {
+    background: linear-gradient(90deg, $blue-500 0%, $purple-500 100%);
+    color: $white;
+    
+    &:hover {
+      box-shadow: 0 8px 25px rgba($purple-500, 0.3);
+    }
+  }
+  
+  &.secondary {
+    background: $white;
+    color: $purple-500;
+    border-color: $purple-500;
+    
+    &:hover {
+      background: rgba($white, 0.9);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.sm {
+    height: 36px;
+    padding: 0 20px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+  
+  &.md {
+    height: 44px;
+    padding: 0 24px;
+    font-size: 16px;
+    min-width: 120px;
+  }
+  
+  &.lg {
+    height: 52px;
+    padding: 0 32px;
+    font-size: 18px;
+    min-width: 140px;
+  }
+  
+  &.fullWidth {
+    width: 100% !important;
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.gradientOverlay {
+  @include absolute-fill;
+  background: linear-gradient(90deg, $blue-500 0%, $purple-500 50%, $orange-500 100%);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  opacity: 0;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.buttonText {
+  position: relative;
+  z-index: 2;
+  color: inherit;
+}
+

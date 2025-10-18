@@ -1,4 +1,5 @@
-import { Header, Hero, Services, Solutions, Process, AnimationInit } from '@/components';
+import { Header, Hero, Services, Solutions, Process } from '@/components';
+import GSAPLoader from '@/components/GSAPLoader';
 import { getHomePageData } from '@/lib/sanity/queries';
 import {
   fallbackHeroData,
@@ -45,8 +46,8 @@ export default async function Home() {
 
   return (
     <>
+      <GSAPLoader />
       <Header />
-      <AnimationInit />
       
       <main id="main-content">
         {/* Hero Section */}
