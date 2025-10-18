@@ -1,388 +1,356 @@
 @import '@/sass/variables';
 @import '@/sass/mixins';
 
-:global {
-  .services {
-    position: relative;
-    min-height: 100vh;
-    padding: $spacing-3xl 0;
-    background: #000000 url('/images/light-bg.avif');
-    background-size: 125% 100%;
-    background-position: 50% 20%;
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-    overflow: hidden;
-    z-index: 6;
-    display: flex;
-    align-items: center;
-    
-    .container {
-      position: relative;
-      z-index: 2;
-    }
-    
-    &__header {
-      text-align: center;
-      margin-bottom: 60px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      
-      @include respond-to-max('lg') {
-        margin-bottom: 48px;
-      }
-      
-      @include respond-to-max('md') {
-        margin-bottom: 36px;
-      }
-    }
-    
-    &__title {
-      font-size: 48px;
-      font-weight: 600;
-      color: $secondary-color;
-      margin-bottom: 4px;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      font-family: $font-primary;
-      
-      @include respond-to-max('lg') {
-        font-size: 40px;
-        margin-bottom: 4px;
-      }
-      
-      @include respond-to-max('md') {
-        font-size: 32px;
-        margin-bottom: 4px;
-      }
-      
-      @include respond-to-max('sm') {
-        font-size: 28px;
-      }
-    }
-    
-    &__tagline {
-      margin-bottom: 12px;
-      
-      @include respond-to-max('lg') {
-        margin-bottom: 10px;
-      }
-      
-      @include respond-to-max('md') {
-        margin-bottom: 8px;
-      }
-      
-      .gradient-text {
-        font-size: 48px;
-        font-weight: 600;
-        line-height: 1.2;
-        letter-spacing: -0.02em;
-        font-family: $font-primary;
-        
-        @include respond-to-max('lg') {
-          font-size: 40px;
-        }
-        
-        @include respond-to-max('md') {
-          font-size: 32px;
-        }
-        
-        @include respond-to-max('sm') {
-          font-size: 28px;
-        }
-      }
-    }
-    
-    &__description {
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.6;
-      max-width: 100%;
-      margin: 0 auto;
-      font-weight: 400;
-      font-family: $font-primary;
-      
-      @include respond-to-max('lg') {
-        font-size: 17px;
-        max-width: 700px;
-      }
-      
-      @include respond-to-max('md') {
-        font-size: 16px;
-        max-width: 600px;
-      }
-    }
-    
-    &__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 20px;
-      
-      @include respond-to-max('lg') {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        max-width: 900px;
-      }
-      
-      @include respond-to-max('md') {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        max-width: 600px;
-      }
-    }
-  }
+.services {
+  position: relative;
+  min-height: 100vh;
+  padding: $spacing-3xl 0;
+  background: #000000 url('/images/light-bg.avif');
+  background-size: 125% 100%;
+  background-position: 50% 20%;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+}
 
-  .service-card {
-    position: relative;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 20px;
-    padding: 32px 28px 100px 28px;
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    transition: all 0.4s ease;
-    overflow: hidden;
-    backdrop-filter: blur(20px);
-    min-height: 420px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
+.servicesHeader {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @include respond-to-max('lg') {
+    margin-bottom: 48px;
+  }
+  
+  @include respond-to-max('md') {
+    margin-bottom: 36px;
+  }
+}
+
+.servicesTitle {
+  font-size: 48px;
+  font-weight: 600;
+  color: $secondary-color;
+  margin-bottom: 4px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-family: $font-primary;
+  
+  @include respond-to-max('lg') {
+    font-size: 40px;
+  }
+  
+  @include respond-to-max('md') {
+    font-size: 32px;
+  }
+  
+  @include respond-to-max('sm') {
+    font-size: 28px;
+  }
+}
+
+.servicesTagline {
+  margin-bottom: 12px;
+  
+  @include respond-to-max('lg') {
+    margin-bottom: 10px;
+  }
+}
+
+.servicesDescription {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin: 0 auto;
+  font-weight: 400;
+  font-family: $font-primary;
+  
+  @include respond-to-max('lg') {
+    font-size: 17px;
+  }
+  
+  @include respond-to-max('md') {
+    font-size: 16px;
+  }
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  
+  @include respond-to-max('lg') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+  }
+  
+  @include respond-to-max('md') {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 600px;
+  }
+}
+
+.serviceCard {
+  position: relative;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  padding: 32px 28px 100px 28px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  --card-bg-opacity: 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    opacity: var(--card-bg-opacity, 0);
+    z-index: 1;
+  }
+  
+  &:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  @include respond-to-max('lg') {
+    padding: $spacing-lg;
+  }
+  
+  @include respond-to-max('md') {
+    padding: $spacing-md;
+    border-radius: 16px;
+  }
+}
+
+.active {
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.5);
+  
+  .serviceCardStageText,
+  .serviceCardTitle,
+  .serviceCardFeature {
+    color: #ffffff !important;
+  }
+  
+  .serviceCardStageIcon {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
     
-    // Hover background animation (from top)
     &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(180deg, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-      opacity: var(--card-bg-opacity, 0);
-      z-index: 1;
-    }
-    
-    // Active/Selected state
-    &--active,
-    &.active {
-      background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 20px 60px rgba(139, 92, 246, 0.5);
-      
-      .service-card__stage-text,
-      .service-card__title,
-      .service-card__subtitle,
-      .service-card__description {
-        color: #ffffff !important;
-      }
-      
-      .service-card__stage-icon {
-        border-color: rgba(255, 255, 255, 0.4);
-        color: #ffffff;
-        
-        &::before {
-          background: rgba(255, 255, 255, 0.3);
-          opacity: 1;
-        }
-      }
-      
-      .service-card__btn {
-        background: #ffffff;
-        color: #8B5CF6;
-        border-color: #ffffff;
-        
-        &:hover {
-          background: rgba(255, 255, 255, 0.9);
-          transform: translateY(-2px);
-        }
-      }
-      
-      .service-card__feature {
-        color: #ffffff !important;
-      }
-    }
-    
-    &:hover {
-      border-color: rgba(139, 92, 246, 0.4);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-    
-    &__stage {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 28px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    &__stage-icon {
-      width: 40px;
-      height: 40px;
-      color: #8B5CF6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid rgba(139, 92, 246, 0.3);
-      border-radius: 50%;
-      background: transparent;
-      position: relative;
-      flex-shrink: 0;
-      
-      &::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      
-      svg {
-        width: 16px;
-        height: 16px;
-        position: relative;
-        z-index: 1;
-      }
-    }
-    
-    // Filling progression for each stage
-    &:nth-child(1) .service-card__stage-icon::before {
-      opacity: 0.25;
-    }
-    
-    &:nth-child(2) .service-card__stage-icon::before {
-      opacity: 0.5;
-    }
-    
-    &:nth-child(3) .service-card__stage-icon::before {
-      opacity: 0.75;
-    }
-    
-    &:nth-child(4) .service-card__stage-icon::before {
+      background: rgba(255, 255, 255, 0.3);
       opacity: 1;
     }
+  }
+  
+  .serviceCardBtn {
+    background: #ffffff;
+    color: #8B5CF6;
     
-    &__stage-text {
-      font-size: 13px;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.7);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-family: $font-primary;
-    }
-    
-    &__title {
-      font-size: 28px;
-      font-weight: 400;
-      color: $secondary-color;
-      margin-bottom: 32px;
-      line-height: 1.4;
-      letter-spacing: -0.02em;
-      font-family: $font-primary;
-      position: relative;
-      z-index: 2;
-      
-      @include respond-to-max('lg') {
-        font-size: 24px;
-        margin-bottom: 28px;
-      }
-      
-      @include respond-to-max('md') {
-        font-size: 22px;
-        margin-bottom: 24px;
-      }
-    }
-    
-    &__features {
-      list-style: none;
-      margin-bottom: 32px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    &__feature {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-      font-size: 16px;
-      color: rgba(255, 255, 255, 0.9);
-      font-family: $font-primary;
-      
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-    
-    &__check {
-      width: 24px;
-      height: 24px;
-      color: #8B5CF6;
-      flex-shrink: 0;
-      background: rgba(139, 92, 246, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      
-      svg {
-        width: 16px;
-        height: 16px;
-      }
-    }
-    
-    &__btn {
-      position: absolute;
-      bottom: 32px;
-      left: 32px;
-      right: 32px;
-      width: auto;
-      padding: 0;
-      background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      overflow: hidden;
-      z-index: 2;
-      height: 44px;
-      
-      &:hover {
-        box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
-      }
-      
-      &:active {
-        transform: translateY(0);
-      }
-    }
-    
-    &__btn-text {
-      position: relative;
-      z-index: 2;
-      font-size: 16px;
-      font-weight: 400;
-      color: #ffffff !important;
-      font-family: $font-primary;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-    }
-    
-    @include respond-to-max('lg') {
-      padding: $spacing-lg;
-    }
-    
-    @include respond-to-max('md') {
-      padding: $spacing-md;
-      border-radius: 16px;
+    &:hover {
+      background: rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
     }
   }
+}
+
+.serviceCardStage {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.serviceCardStageIcon {
+  width: 40px;
+  height: 40px;
+  color: #8B5CF6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  border-radius: 50%;
+  background: transparent;
+  position: relative;
+  flex-shrink: 0;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.servicesGrid .serviceCard:nth-child(1) .serviceCardStageIcon::before {
+  opacity: 0.25;
+}
+
+.servicesGrid .serviceCard:nth-child(2) .serviceCardStageIcon::before {
+  opacity: 0.5;
+}
+
+.servicesGrid .serviceCard:nth-child(3) .serviceCardStageIcon::before {
+  opacity: 0.75;
+}
+
+.servicesGrid .serviceCard:nth-child(4) .serviceCardStageIcon::before {
+  opacity: 1;
+}
+
+.serviceCardStageText {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: $font-primary;
+}
+
+.serviceCardTitle {
+  font-size: 28px;
+  font-weight: 400;
+  color: $secondary-color;
+  margin-bottom: 32px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  font-family: $font-primary;
+  position: relative;
+  z-index: 2;
+  
+  @include respond-to-max('lg') {
+    font-size: 24px;
+    margin-bottom: 28px;
+  }
+  
+  @include respond-to-max('md') {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+}
+
+.serviceCardFeatures {
+  list-style: none;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+  padding: 0;
+}
+
+.serviceCardFeature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: $font-primary;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.serviceCardCheck {
+  width: 24px;
+  height: 24px;
+  color: #8B5CF6;
+  flex-shrink: 0;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.serviceCardBtn {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  right: 32px;
+  height: 44px;
+  padding: 0;
+  background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 2;
+  
+  &:hover {
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.serviceCardBtnText {
+  position: relative;
+  z-index: 2;
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff !important;
+  font-family: $font-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.btnGradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 50%, #F59E0B 100%);
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  opacity: 0;
+  border-radius: 8px;
+  z-index: 1;
 }

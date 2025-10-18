@@ -1,5 +1,4 @@
-@import '@/sass/variables';
-@import '@/sass/mixins';
+@import '@/sass/index';
 
 :global {
   .header {
@@ -37,7 +36,6 @@
       height: 60px;
     }
     
-    // Apple-style liquid glass effect on scroll
     &--glass {
       background: rgba(255, 255, 255, 0.72);
       backdrop-filter: blur(20px) saturate(180%);
@@ -83,15 +81,15 @@
       gap: 12px;
       position: relative;
       z-index: 11;
-    }
-    
-    &__logo-icon {
-      width: 32px;
-      height: 32px;
-      flex-shrink: 0;
-      opacity: 1 !important;
-      position: relative;
-      z-index: 12;
+      
+      &-icon {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        opacity: 1 !important;
+        position: relative;
+        z-index: 12;
+      }
     }
     
     &__brand-text {
@@ -233,29 +231,29 @@
       }
     }
     
+    &__gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 50%, #F59E0B 100%);
+      background-size: 200% 100%;
+      background-position: 0% 50%;
+      opacity: 0;
+      border-radius: 8px;
+      z-index: 1;
+    }
+    
+    &__text {
+      position: relative;
+      z-index: 2;
+      color: #ffffff;
+    }
+    
     @include respond-to-max('lg') {
       width: 100%;
       padding: $spacing-md;
     }
-  }
-
-  .btn__gradient-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 50%, #F59E0B 100%);
-    background-size: 200% 100%;
-    background-position: 0% 50%;
-    opacity: 0;
-    border-radius: 8px;
-    z-index: 1;
-  }
-
-  .btn__text {
-    position: relative;
-    z-index: 2;
-    color: #ffffff;
   }
 }

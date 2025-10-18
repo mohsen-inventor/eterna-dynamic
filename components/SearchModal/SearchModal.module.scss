@@ -1,5 +1,4 @@
-@import '@/sass/variables';
-@import '@/sass/mixins';
+@import '@/sass/index';
 
 :global {
   .search-modal {
@@ -144,37 +143,12 @@
     }
   }
 
-  @include respond-to-max('sm') {
-    .search-modal {
-      &__input-container {
-        padding: 0 45px 0 14px;
-      }
-      
-      &__input {
-        font-size: 14px;
-        padding: 12px 14px;
-      }
-      
-      &__close {
-        top: 12px;
-        right: 12px;
-        width: 28px;
-        height: 28px;
-        
-        svg {
-          width: 18px;
-          height: 18px;
-        }
-      }
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
     }
-  }
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
+    to {
+      transform: translateY(0);
+    }
   }
 }
