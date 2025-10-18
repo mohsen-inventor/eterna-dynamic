@@ -90,7 +90,7 @@ export default function Header() {
                 <path d="m21 21-4.35-4.35" stroke="currentColor" strokeWidth="2"/>
               </svg>
             </button>
-            <a href="#contact" className={css.btnPrimary}>
+            <a href="#contact" className={`${css.btn} ${css.btnPrimary}`}>
               <span className={css.btnGradientOverlay}></span>
               <span className={css.btnText}>LET&apos;S TALK</span>
             </a>
