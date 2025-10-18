@@ -1,4 +1,4 @@
-@import '@/sass/index';
+@use '@/sass/index' as *;
 
 .header {
   position: fixed;
@@ -7,7 +7,7 @@
   width: 100%;
   z-index: $z-index-fixed;
   background-color: transparent;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  @include transition(transform, 0.3s, cubic-bezier(0.4, 0, 0.2, 1));
   transform: translateY(0);
 }
 
@@ -21,11 +21,11 @@
   background-color: #ffffff;
   border-radius: 12px;
   margin-top: 32px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  @include elevation(2);
   border: 1px solid rgba(0, 0, 0, 0.05);
   max-width: 1280px;
   height: 64px;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  @include transition(all, 0.6s, cubic-bezier(0.4, 0, 0.2, 1));
   overflow: hidden;
   
   @include respond-to-max('lg') {
@@ -37,9 +37,7 @@
 }
 
 .navbarGlass {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  @include glass-effect(0.72, 20px);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.08),
     0 1px 0 rgba(255, 255, 255, 0.5) inset,
@@ -48,8 +46,7 @@
   
   &::before {
     content: '';
-    position: absolute;
-    inset: 0;
+    @include absolute-fill;
     border-radius: inherit;
     background: linear-gradient(
       135deg,
@@ -64,20 +61,17 @@
 
 .navbarBrand {
   @include flex-center;
-  @include transition(opacity);
+  @include smooth-transition(opacity);
   position: relative;
   z-index: 10;
   
   &:hover {
     opacity: 0.8;
   }
-  
-  opacity: 1 !important;
 }
 
 .navbarLogo {
-  display: flex;
-  align-items: center;
+  @include flex-center;
   gap: 12px;
   position: relative;
   z-index: 11;
@@ -87,21 +81,15 @@
   width: 32px;
   height: 32px;
   flex-shrink: 0;
-  opacity: 1 !important;
-  position: relative;
-  z-index: 12;
 }
 
 .navbarBrandText {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: $font-primary;
   font-size: 20px;
   font-weight: 600;
   color: #2A2A60;
   line-height: 1;
   letter-spacing: -0.02em;
-  opacity: 1 !important;
-  position: relative;
-  z-index: 12;
 }
 
 .navbarMenu {
@@ -123,8 +111,8 @@
   color: #000000;
   padding: 8px 16px;
   position: relative;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  @include transition(color);
+  font-family: $font-primary;
+  @include smooth-transition(color);
   white-space: nowrap;
   cursor: pointer;
   
@@ -135,13 +123,13 @@
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: #8B5CF6;
+    background-color: $primary-color;
     transform: translateX(-50%);
     @include transition(width);
   }
   
   &:hover {
-    color: #8B5CF6;
+    color: $primary-color;
     
     &::after {
       width: 100%;
@@ -150,7 +138,7 @@
 }
 
 .navbarActions {
-  display: flex;
+  @include flex-center;
   gap: 12px;
   justify-self: end;
 }
@@ -160,13 +148,13 @@
   @include flex-center;
   width: 44px;
   height: 44px;
-  color: #8B5CF6;
+  color: $primary-color;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  transition: all 0.3s ease;
+  @include smooth-transition(all);
   
   &:hover {
     background: rgba(139, 92, 246, 0.1);
@@ -180,17 +168,15 @@
 }
 
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   font-weight: $font-weight-semibold;
-  @include transition;
+  @include smooth-transition;
   cursor: pointer;
   text-decoration: none;
 }
 
 .btnPrimary {
-  background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
+  background: linear-gradient(90deg, #3B82F6 0%, $primary-color 100%);
   color: #ffffff;
   border: none;
   width: 160px;
@@ -200,7 +186,7 @@
   letter-spacing: 0.01em;
   font-family: $font-primary;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  @include smooth-transition(all);
   position: relative;
   overflow: hidden;
   
@@ -217,12 +203,8 @@
 }
 
 .btnGradientOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 50%, #F59E0B 100%);
+  @include absolute-fill;
+  background: linear-gradient(90deg, #3B82F6 0%, $primary-color 50%, #F59E0B 100%);
   background-size: 200% 100%;
   background-position: 0% 50%;
   opacity: 0;

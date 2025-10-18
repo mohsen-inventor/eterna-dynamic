@@ -1,11 +1,7 @@
-@import '@/sass/index';
+@use '@/sass/index' as *;
 
 .searchModal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  @include fixed-fill;
   z-index: $z-index-modal;
   display: none;
   transform: translateY(-100%);
@@ -17,11 +13,7 @@
 }
 
 .searchModalOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  @include absolute-fill;
   background-color: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(30px) saturate(200%);
   -webkit-backdrop-filter: blur(30px) saturate(200%);
@@ -29,21 +21,12 @@
 
 .searchModalContent {
   position: relative;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(30px) saturate(200%);
-  -webkit-backdrop-filter: blur(30px) saturate(200%);
+  @include frosted-glass;
   padding: 20px 0;
-  box-shadow: 
-    0 12px 48px rgba(0, 0, 0, 0.15),
-    0 2px 0 rgba(255, 255, 255, 0.6) inset,
-    0 -2px 0 rgba(0, 0, 0, 0.05) inset,
-    0 0 0 1px rgba(255, 255, 255, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.25);
   
   &::before {
     content: '';
-    position: absolute;
-    inset: 0;
+    @include absolute-fill;
     background: linear-gradient(
       135deg,
       rgba(255, 255, 255, 0.6) 0%,
@@ -79,14 +62,14 @@
   background-color: #f8f9fa;
   color: $text-color;
   outline: none;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
+  @include smooth-transition((border-color, background-color));
   
   &::placeholder {
     color: #999999;
   }
   
   &:focus {
-    border-color: #8B5CF6;
+    border-color: $primary-color;
     background-color: $secondary-color;
   }
   
@@ -109,12 +92,12 @@
   width: 40px;
   height: 40px;
   @include flex-center;
-  @include transition;
+  @include smooth-transition(all);
   border-radius: 50%;
   z-index: 3;
   
   &:hover {
-    color: #8B5CF6;
+    color: $primary-color;
     background: rgba(255, 255, 255, 0.3);
     border-color: rgba(139, 92, 246, 0.4);
     transform: scale(1.1);
