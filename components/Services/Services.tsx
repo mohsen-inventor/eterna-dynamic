@@ -30,12 +30,12 @@ export default function Services({ title, tagline, description, services }: Serv
     cardsRef.current.forEach(card => {
       if (!card) return;
       
-      const button = card.querySelector(`.${css.serviceCardBtn}`);
-      const gradientOverlay = button?.querySelector(`.${css.btnGradientOverlay}`);
+      const button = card.querySelector('button');
+      const gradientOverlay = button?.querySelector('span:first-child');
       
       // Card click to toggle active state
       card.addEventListener('click', (e) => {
-        if ((e.target as HTMLElement).closest(`.${css.serviceCardBtn}`)) return;
+        if ((e.target as HTMLElement).closest('button')) return;
         
         const isActive = card.classList.contains(css.active);
         
