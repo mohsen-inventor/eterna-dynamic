@@ -1,0 +1,10 @@
+// ========================================
+// Home Page Sections
+// ========================================
+// This file imports all sections that belong to the home page
+// Provides a single entry point for all home-related styles
+
+@import 'hero';        // Hero section (main landing area)
+@import 'services';    // Services section (4 service cards)
+@import 'solutions';   // Solutions section (problems vs solutions)
+@import 'process';     // Process section (4 functions with wave)

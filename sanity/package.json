@@ -1,0 +1,16 @@
+{
+  "name": "eterna-dynamic-sanity",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
+  },
+  "dependencies": {
+    "@sanity/vision": "^4.10.3",
+    "styled-components": "^6.1.19"
+  }
+}

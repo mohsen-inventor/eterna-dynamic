@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EternaCloud - One partnership makes change easy. Product lifecycle partner for data center teams.">
+    <meta name="keywords" content="cloud, data center, product management, hyperscale, eternacloud">
+    <meta name="author" content="EternaCloud">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="EternaCloud - One partnership makes change easy">
+    <meta property="og:description" content="Product lifecycle partner for data center teams. Design and build with ease.">
+    <meta property="og:image" content="images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EternaCloud - One partnership makes change easy">
+    <meta name="twitter:description" content="Product lifecycle partner for data center teams.">
+    <meta name="twitter:image" content="images/og-image.jpg">
+    
+    <title>EternaCloud - Product Lifecycle Partner</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/avif" href="images/favicon.avif">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.min.css">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link" tabindex="1">Skip to main content</a>
+    
+    <!-- Header / Navigation -->
+    <header class="header" role="banner">
+        <nav class="navbar" aria-label="Main navigation">
+            <!-- Logo/Brand -->
+            <a href="#" class="navbar__brand" aria-label="EternaCloud Home">
+                <div class="navbar__logo">
+                    <svg class="navbar__logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4A70F7;stop-opacity:1" />
+                                <stop offset="25%" style="stop-color:#8A56F0;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#E050B0;stop-opacity:1" />
+                                <stop offset="75%" style="stop-color:#F7B04A;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#4A70F7;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="12" cy="12" r="10" stroke="url(#logoGradient)" stroke-width="2" fill="none"/>
+                    </svg>
+                    <span class="navbar__brand-text">EternaCloud</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="navbar__menu" id="navbarMenu">
+                <ul class="navbar__nav" role="menubar">
+                    <li role="none">
+                        <span class="navbar__link" role="menuitem">What We Do</span>
+                    </li>
+                    <li role="none">
+                        <span class="navbar__link" role="menuitem">Our Approach</span>
+                    </li>
+                    <li role="none">
+                        <span class="navbar__link" role="menuitem">About Us</span>
+                    </li>
+                    <li role="none">
+                        <span class="navbar__link" role="menuitem">Insights</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Actions -->
+            <div class="navbar__actions">
+                <button class="navbar__search" aria-label="Search">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                        <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+            </button>
+                <a href="#contact" class="btn btn--primary">
+                    <span class="btn__gradient-overlay"></span>
+                    <span class="btn__text">LET'S TALK</span>
+                </a>
+            </div>
+        </nav>
+        
+        <!-- Search Modal -->
+        <div class="search-modal" id="searchModal" aria-hidden="true">
+            <div class="search-modal__overlay"></div>
+            <div class="search-modal__content">
+                <button class="search-modal__close" id="searchClose" aria-label="Close search">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div class="search-modal__input-container">
+                    <input 
+                        type="text" 
+                        class="search-modal__input" 
+                        placeholder="Type to search"
+                        id="searchInput"
+                    >
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Smooth Scroll Wrapper -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <!-- Background Video -->
+            <video class="hero__video" autoplay muted loop playsinline>
+                <source src="videos/hero-bg.webm" type="video/webm">
+            </video>
+            
+            <!-- Background Overlay -->
+            <div class="hero__overlay"></div>
+            
+            <div class="hero__content">
+                <div class="hero__tagline">
+                    <span class="gradient-text">Product Lifecycle Partner</span>
+                </div>
+                <h1 class="hero__headline">Design and build with ease.</h1>
+                <p class="hero__description">EternaCloud is the service making execution simple and effective for data center teams.</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="services__header">
+                    <h2 class="services__title">Trusted by hyperscale teams</h2>
+                    <div class="services__tagline">
+                        <span class="gradient-text">from concept to completion.</span>
+                    </div>
+                    <p class="services__description">
+                        For situational clarity through constant change. Proven on 330+ MW of data center builds.
+                    </p>
+                </div>
+                
+                <div class="services__grid">
+                    <!-- Design Service Card -->
+                    <article class="service-card">
+                        <div class="service-card__stage">
+                            <div class="service-card__stage-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                            </svg>
+                            </div>
+                            <span class="service-card__stage-text">Design</span>
+                        </div>
+                        <h3 class="service-card__title">Solutions without the heavy lifting.</h3>
+                        <ul class="service-card__features">
+                            <li class="service-card__feature">
+                                <svg class="service-card__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>Dedicated specialists</span>
+                            </li>
+                            <li class="service-card__feature">
+                                <svg class="service-card__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>Decision-ready solutions</span>
+                            </li>
+                        </ul>
+                        <button class="service-card__btn">
+                            <span class="btn__gradient-overlay"></span>
+                            <span class="service-card__btn-text">Show me more</span>
+                        </button>
+                    </article>
+                    
+                    <!-- Onboarding Service Card -->
+                    <article class="service-card">
+                        <div class="service-card__stage">
+                            <div class="service-card__stage-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                            </svg>
+                            </div>
+                            <span class="service-card__stage-text">Onboarding</span>
+                        </div>
+                        <h3 class="service-card__title">Vendors are kept on track for you.</h3>
+                        <ul class="service-card__features">
+                            <li class="service-card__feature">
+                                <svg class="service-card__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>Cross-organizational alignment</span>
+                            </li>
+                            <li class="service-card__feature">
+                                <svg class="service-card__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>Follow-through ownership</span>
+                            </li>
+                        </ul>
+                        <button class="service-card__btn">
+                            <span class="btn__gradient-overlay"></span>
+                            <span class="service-card__btn-text">Show me more</span>
+                        </button>
+                    </article>
+                    
+                    <!-- Delivery Service Card -->
+                    <article class="service-card">
+                        <div class="service-card__stage">
+                            <div class="service-card__stage-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                            </svg>
+                            </div>
+                            <span class="service-card__stage-text">Delivery</span>
+                        </div>
+                        <h3 class="service-card__title">Get it right the first time—every time.</h3>
+                        <ul class="service-card__features">
+                            <li class="service-card__feature">
+                                <svg class="service-card__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>Expert-led execution</span>
+                            </li>
+                            <li class="service-card__feature">
+                                <svg class="service-card__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>Change ownership</span>
+                            </li>
+                        </ul>
+                        <button class="service-card__btn">
+                            <span class="btn__gradient-overlay"></span>
+                            <span class="service-card__btn-text">Show me more</span>
+                        </button>
+                    </article>
+                    
+                    <!-- Deployment Service Card -->
+                    <article class="service-card">
+                        <div class="service-card__stage">
+                            <div class="service-card__stage-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="3" fill="currentColor"/>
+                            </svg>
+                            </div>
+                            <span class="service-card__stage-text">Deployment</span>
+                        </div>
+                        <h3 class="service-card__title">Context always carries forward.</h3>
+                        <ul class="service-card__features">
+                            <li class="service-card__feature">
+                                <svg class="service-card__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>Clean handoffs</span>
+                            </li>
+                            <li class="service-card__feature">
+                                <svg class="service-card__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span>Turnkey outcomes</span>
+                            </li>
+                        </ul>
+                        <button class="service-card__btn">
+                            <span class="btn__gradient-overlay"></span>
+                            <span class="service-card__btn-text">Show me more</span>
+                        </button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section class="solutions" id="solutions">
+            <div class="container">
+                <div class="solutions__header">
+                    <div class="solutions__badge">
+                        <svg class="solutions__badge-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5 2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z" fill="currentColor"/>
+                        </svg>
+                        <span>Freedom</span>
+                    </div>
+                    <h2 class="solutions__title">Stop playing catch up.</h2>
+                    <div class="solutions__subtitle">
+                        <span class="gradient-text">Enjoy peace of mind.</span>
+                    </div>
+                </div>
+                
+                <div class="solutions__content">
+                    <!-- Problems Column -->
+                    <div class="solutions__column solutions__problems">
+                        <div class="solutions__card">
+                            <div class="solutions__card-icon solutions__card-icon--negative">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 9L9 15M9 9L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <p class="solutions__card-text">Fragmented context and facts spread across minds and orgs</p>
+                        </div>
+                        
+                        <div class="solutions__card">
+                            <div class="solutions__card-icon solutions__card-icon--negative">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 9L9 15M9 9L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <p class="solutions__card-text">Inconsistent service experiences depending on the vendor</p>
+                        </div>
+                        
+                        <div class="solutions__card">
+                            <div class="solutions__card-icon solutions__card-icon--negative">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 9L9 15M9 9L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <p class="solutions__card-text">Disruptive reactions to things that shouldn't be happening</p>
+                        </div>
+                        
+                        <div class="solutions__card">
+                            <div class="solutions__card-icon solutions__card-icon--negative">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 9L9 15M9 9L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <p class="solutions__card-text">Repetitive double-checking to ensure details are accurate</p>
+                        </div>
+                        
+                        <div class="solutions__card">
+                            <div class="solutions__card-icon solutions__card-icon--negative">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 9L9 15M9 9L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <p class="solutions__card-text">Overly-complex workloads drain capacity from high-value teams</p>
+                        </div>
+                    </div>
+
+                    <!-- Cosmos Animation Column -->
+                    <div class="solutions__center">
+                        <div class="solutions__cosmos">
+                            <video class="solutions__cosmos-video" autoplay muted loop playsinline>
+                                <source src="videos/cosmos.webm" type="video/webm">
+                            </video>
+                    </div>
+                </div>
+                
+                    <!-- Solutions Column -->
+                    <div class="solutions__column solutions__solutions">
+                        <div class="solutions__card">
+                            <div class="solutions__card-icon solutions__card-icon--positive">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                            <p class="solutions__card-text">Clear context and on-hand facts expedite decision-making</p>
+                        </div>
+                        
+                        <div class="solutions__card">
+                            <div class="solutions__card-icon solutions__card-icon--positive">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <p class="solutions__card-text">Consistent service across vendors through one point of contact</p>
+                        </div>
+                        
+                        <div class="solutions__card">
+                            <div class="solutions__card-icon solutions__card-icon--positive">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <p class="solutions__card-text">Unified layers of dependencies prevent risks and costly surprises</p>
+                        </div>
+                        
+                        <div class="solutions__card">
+                            <div class="solutions__card-icon solutions__card-icon--positive">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                    </div>
+                            <p class="solutions__card-text">Continual validations sync to your requirements at every stage</p>
+                </div>
+                        
+                        <div class="solutions__card">
+                            <div class="solutions__card-icon solutions__card-icon--positive">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <p class="solutions__card-text">Simple interactions with our teams give you ready-to-go deliverables</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process" id="process">
+            <div class="container">
+                <div class="process__header">
+                    <div class="process__badge">
+                        <svg class="process__badge-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>Dependable Precision</span>
+                    </div>
+                    <h2 class="process__title">One practical, holistic service.</h2>
+                    <div class="process__tagline">
+                        <span class="gradient-text">Exponential daily value.</span>
+                    </div>
+                    <p class="process__description">
+                        EternaCloud teams secure, align, validate and curate exactly what keeps your teams moving.
+                    </p>
+                </div>
+                
+                <div class="process__content-wrapper">
+                    <div class="process__functions">
+                        <!-- Secures Function -->
+                        <div class="process__function">
+                            <div class="process__function-header">
+                                <div class="process__function-circle"></div>
+                                <span class="process__function-title">Secures</span>
+                            </div>
+                            <div class="process__function-content">
+                                <div class="process__function-line"></div>
+                                <ul class="process__function-items">
+                                    <li class="process__function-item">requirements</li>
+                                    <li class="process__function-item">expectations</li>
+                                    <li class="process__function-item">context</li>
+                                    <li class="process__function-item">facts</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Aligns Function -->
+                        <div class="process__function">
+                            <div class="process__function-header">
+                                <div class="process__function-circle"></div>
+                                <span class="process__function-title">Aligns</span>
+                            </div>
+                            <div class="process__function-content">
+                                <div class="process__function-line"></div>
+                                <ul class="process__function-items">
+                                    <li class="process__function-item">dependencies</li>
+                                    <li class="process__function-item">stakeholders</li>
+                                    <li class="process__function-item">processes</li>
+                                    <li class="process__function-item">vendors</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Validates Function -->
+                        <div class="process__function">
+                            <div class="process__function-header">
+                                <div class="process__function-circle"></div>
+                                <span class="process__function-title">Validates</span>
+                            </div>
+                            <div class="process__function-content">
+                                <div class="process__function-line"></div>
+                                <ul class="process__function-items">
+                                    <li class="process__function-item">completeness</li>
+                                    <li class="process__function-item">coherence</li>
+                                    <li class="process__function-item">assurances</li>
+                                    <li class="process__function-item">details</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Curates Function -->
+                        <div class="process__function">
+                            <div class="process__function-header">
+                                <div class="process__function-circle"></div>
+                                <span class="process__function-title">Curates</span>
+                            </div>
+                            <div class="process__function-content">
+                                <div class="process__function-line"></div>
+                                <ul class="process__function-items">
+                                    <li class="process__function-item">deliverables</li>
+                                    <li class="process__function-item">resolutions</li>
+                                    <li class="process__function-item">initiatives</li>
+                                    <li class="process__function-item">stages</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Wavy Gradient Graphic -->
+                    <div class="process__wave">
+                        <picture>
+                            <source media="(max-width: 768px)" srcset="images/wave-v.avif">
+                            <img src="images/wave-h.png" alt="Decorative wave graphic" class="process__wave-image">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/scripts.js"></script>
+    
+        </div><!-- #smooth-content -->
+    </div><!-- #smooth-wrapper -->
+</body>
+</html>

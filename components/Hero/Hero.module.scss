@@ -1,0 +1,136 @@
+@import '@/sass/variables';
+@import '@/sass/mixins';
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  @include flex-center;
+  overflow: hidden;
+  background-color: #0a0a0a;
+  
+  &__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    max-width: 100vw;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    object-fit: cover;
+    object-position: center center;
+  }
+  
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 80%, rgba(0, 0, 0, 0.6) 90%, rgba(0, 0, 0, 0.9) 95%, rgba(0, 0, 0, 1) 100%);
+    z-index: 2;
+  }
+  
+  &__content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 $spacing-lg;
+    transform: translateY(-40px);
+  }
+  
+  &__tagline {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+    font-family: $font-primary;
+    
+    @include respond-to-max('lg') {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    
+    @include respond-to-max('md') {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    
+    @include respond-to-max('sm') {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+  }
+  
+  &__headline {
+    font-size: 64px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    font-family: $font-primary;
+    
+    @include respond-to-max('lg') {
+      font-size: 52px;
+      margin-bottom: 18px;
+    }
+    
+    @include respond-to-max('md') {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+    
+    @include respond-to-max('sm') {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+  }
+  
+  &__description {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 400;
+    font-family: $font-primary;
+    
+    @include respond-to-max('lg') {
+      font-size: 18px;
+    }
+    
+    @include respond-to-max('md') {
+      font-size: 16px;
+    }
+    
+    @include respond-to-max('sm') {
+      font-size: 14px;
+    }
+  }
+}
+
+.gradientText {
+  background: linear-gradient(90deg, #00D4FF 0%, #8B5CF6 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
