@@ -148,7 +148,7 @@ export default function Services({ title, tagline, description, services }: Serv
         <div className={css.servicesGrid}>
           {sortedServices.map((service, index) => (
             <article 
-              key={service._id} 
+              key={service.stage || index} 
               className={css.serviceCard}
               ref={(el) => { cardsRef.current[index] = el; }}
             >
