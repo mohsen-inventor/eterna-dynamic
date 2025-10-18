@@ -1,0 +1,154 @@
+// ============================================
+// EternaCloud - Sass Configuration
+// Global app configuration and settings
+// ============================================
+
+// ----------------
+// Base Settings
+// ----------------
+
+$base-font-size: 16px !default;
+$base-line-height: 1.5 !default;
+
+// ----------------
+// Direction & Theme
+// ----------------
+
+$direction: ltr !default;  // ltr | rtl
+$theme: light !default;     // light | dark
+
+// ----------------
+// Container Settings
+// ----------------
+
+$container-max-width: 1280px !default;
+$container-padding: 20px !default;
+
+// ----------------
+// Grid Settings
+// ----------------
+
+$grid-columns: 12 !default;
+$grid-gap: 24px !default;
+$grid-gutter: 20px !default;
+
+// ----------------
+// Transition Settings
+// ----------------
+
+$transition-base: 0.3s !default;
+$transition-fast: 0.15s !default;
+$transition-slow: 0.5s !default;
+
+$transition-timing-default: ease !default;
+$transition-timing-ease-in-out: ease-in-out !default;
+$transition-timing-ease-in: ease-in !default;
+$transition-timing-ease-out: ease-out !default;
+$transition-timing-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55) !default;
+$transition-timing-smooth: cubic-bezier(0.4, 0, 0.2, 1) !default;
+
+// ----------------
+// Animation Settings
+// ----------------
+
+$animation-duration: 0.3s !default;
+$animation-timing: ease-in-out !default;
+
+// ----------------
+// Border Settings
+// ----------------
+
+$border-width-thin: 1px !default;
+$border-width-medium: 2px !default;
+$border-width-thick: 4px !default;
+
+$border-style-default: solid !default;
+
+// ----------------
+// Glass Effect Settings
+// ----------------
+
+$glass-blur: blur(20px) !default;
+$glass-blur-light: blur(10px) !default;
+$glass-blur-strong: blur(30px) !default;
+$glass-saturation: saturate(180%) !default;
+
+$glass-opacity: 0.72 !default;
+$glass-opacity-light: 0.5 !default;
+$glass-opacity-strong: 0.9 !default;
+
+$glass-border: rgba(255, 255, 255, 0.18) !default;
+$glass-border-dark: rgba(0, 0, 0, 0.1) !default;
+
+// ----------------
+// Shadow Settings
+// ----------------
+
+$shadow-color: rgba(0, 0, 0, 0.1) !default;
+$shadow-color-dark: rgba(0, 0, 0, 0.25) !default;
+$shadow-color-light: rgba(0, 0, 0, 0.05) !default;
+
+// ----------------
+// Overlay Settings
+// ----------------
+
+$overlay-dark: rgba(0, 0, 0, 0.5) !default;
+$overlay-light: rgba(255, 255, 255, 0.9) !default;
+
+// ----------------
+// Scroll Settings
+// ----------------
+
+$scroll-behavior: smooth !default;
+$scroll-padding-top: 80px !default;
+
+// ----------------
+// Focus Settings
+// ----------------
+
+$focus-ring-width: 3px !default;
+$focus-ring-offset: 2px !default;
+$focus-ring-opacity: 0.5 !default;
+
+// ----------------
+// Performance Settings
+// ----------------
+
+$enable-smooth-scroll: true !default;
+$enable-hardware-acceleration: true !default;
+$enable-will-change: true !default;
+
+// ----------------
+// Accessibility Settings
+// ----------------
+
+$enable-reduced-motion: true !default;
+$enable-focus-visible: true !default;
+$enable-high-contrast: false !default;
+
+// ----------------
+// Development Settings
+// ----------------
+
+$debug-mode: false !default;
+$show-grid: false !default;
+
+// ----------------
+// Helper Functions for Config
+// ----------------
+
+// Check if RTL
+@function isRtl() {
+  @return $direction == rtl;
+}
+
+// Check if Dark Theme
+@function isDark() {
+  @return $theme == dark;
+}
+
+// Check if debug mode
+@function isDebug() {
+  @return $debug-mode == true;
+}
+

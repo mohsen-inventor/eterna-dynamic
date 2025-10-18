@@ -1,4 +1,16 @@
+// ============================================
 // Sass Index - Import this in components to get all base styles
+// Import order matters!
+// ============================================
+
+// 1. Config first (contains global settings)
+@import 'config';
+
+// 2. Functions (utilities)
 @import 'functions';
+
+// 3. Variables (uses config settings)
 @import 'variables';
+
+// 4. Mixins (uses variables and config)
 @import 'mixins';
