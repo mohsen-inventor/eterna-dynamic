@@ -30,9 +30,9 @@ export const structure = (S: StructureBuilder) =>
           S.list()
             .title('Global Settings')
             .items([
-              // 1. Site Info
+              // Site Info
               S.listItem()
-                .title('1. Site Info')
+                .title('Site Info')
                 .icon(InfoOutlineIcon)
                 .child(
                   S.document()
@@ -40,9 +40,19 @@ export const structure = (S: StructureBuilder) =>
                     .documentId('siteInfo')
                 ),
               
-              // 2. Header & Navigation
+              // SEO & Meta
               S.listItem()
-                .title('2. Header & Navigation')
+                .title('SEO & Meta')
+                .icon(SearchIcon)
+                .child(
+                  S.document()
+                    .schemaType('seoSettings')
+                    .documentId('seoSettings')
+                ),
+              
+              // Header & Navigation
+              S.listItem()
+                .title('Header & Navigation')
                 .icon(DesktopIcon)
                 .child(
                   S.document()
@@ -50,9 +60,9 @@ export const structure = (S: StructureBuilder) =>
                     .documentId('headerSettings')
                 ),
               
-              // 3. Main Menu
+              // Main Menu
               S.listItem()
-                .title('3. Main Menu')
+                .title('Main Menu')
                 .icon(MenuIcon)
                 .child(
                   S.document()
@@ -60,24 +70,14 @@ export const structure = (S: StructureBuilder) =>
                     .documentId('mainMenu')
                 ),
               
-              // 4. Footer
+              // Footer
               S.listItem()
-                .title('4. Footer')
+                .title('Footer')
                 .icon(LinkIcon)
                 .child(
                   S.document()
                     .schemaType('footerSettings')
                     .documentId('footerSettings')
-                ),
-              
-              // 5. SEO & Meta
-              S.listItem()
-                .title('5. SEO & Meta')
-                .icon(SearchIcon)
-                .child(
-                  S.document()
-                    .schemaType('seoSettings')
-                    .documentId('seoSettings')
                 ),
             ])
         ),
@@ -94,9 +94,9 @@ export const structure = (S: StructureBuilder) =>
           S.list()
             .title('Home Page Sections')
             .items([
-              // 1. Hero Section
+              // Hero Section
               S.listItem()
-                .title('1. Hero Section')
+                .title('Hero Section')
                 .icon(RocketIcon)
                 .child(
                   S.document()
@@ -104,9 +104,9 @@ export const structure = (S: StructureBuilder) =>
                     .documentId('heroSection')
                 ),
               
-              // 2. Services Section
+              // Services Section
               S.listItem()
-                .title('2. Services Section')
+                .title('Services Section')
                 .icon(ComponentIcon)
                 .child(
                   S.document()
@@ -114,9 +114,9 @@ export const structure = (S: StructureBuilder) =>
                     .documentId('servicesSection')
                 ),
               
-              // 3. Solutions Section
+              // Solutions Section
               S.listItem()
-                .title('3. Solutions Section')
+                .title('Solutions Section')
                 .icon(BulbOutlineIcon)
                 .child(
                   S.document()
@@ -124,9 +124,9 @@ export const structure = (S: StructureBuilder) =>
                     .documentId('solutionsSection')
                 ),
               
-              // 4. Process Section
+              // Process Section
               S.listItem()
-                .title('4. Process Section')
+                .title('Process Section')
                 .icon(ActivityIcon)
                 .child(
                   S.document()

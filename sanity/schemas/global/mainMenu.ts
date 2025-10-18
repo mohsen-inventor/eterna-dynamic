@@ -41,11 +41,10 @@ export default defineType({
             select: {
               title: 'title',
               link: 'link',
-              order: 'order',
             },
-            prepare({ title, link, order }) {
+            prepare({ title, link }) {
               return {
-                title: `${order}. ${title}`,
+                title: title,
                 subtitle: link,
               };
             },

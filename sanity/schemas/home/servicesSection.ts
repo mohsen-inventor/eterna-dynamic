@@ -80,11 +80,10 @@ export default defineType({
             select: {
               stage: 'stage',
               title: 'title',
-              order: 'order',
             },
-            prepare({ stage, title, order }) {
+            prepare({ stage, title }) {
               return {
-                title: `${order}. ${stage}`,
+                title: stage,
                 subtitle: title,
               };
             },
