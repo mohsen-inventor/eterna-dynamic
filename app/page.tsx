@@ -9,7 +9,7 @@ import {
   fallbackProcessData,
 } from '@/lib/fallbackData';
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const dynamic = 'force-dynamic'; // Disable caching, always fetch fresh data
 
 export default async function Home() {
   // Fetch data from Sanity CMS
