@@ -50,18 +50,18 @@ export const fallbackSolutionsData = {
   title: 'Stop playing catch up.',
   subtitle: 'Enjoy peace of mind.',
   problems: [
-    'Fragmented context across teams',
-    'Inconsistent vendor experiences',
-    'Disruptive reactions to issues',
-    'Repetitive double-checking',
-    'Complex workloads drain capacity',
+    'Fragmented context and facts spread across minds and orgs',
+    'Inconsistent service experiences depending on the vendor',
+    'Disruptive reactions to things that shouldn\'t be happening',
+    'Repetitive double-checking to ensure details are accurate',
+    'Overly-complex workloads drain capacity from high-value teams',
   ],
   solutions: [
-    'Clear context expedites decisions',
-    'Consistent service across vendors',
-    'Unified dependencies prevent risks',
-    'Continual validations sync requirements',
-    'Simple interactions, ready deliverables',
+    'Clear context and on-hand facts expedite decision-making',
+    'Consistent service across vendors through one point of contact',
+    'Unified layers of dependencies prevent risks and costly surprises',
+    'Continual validations sync to your requirements at every stage',
+    'Simple interactions with our teams give you ready-to-go deliverables',
   ],
 };
 
