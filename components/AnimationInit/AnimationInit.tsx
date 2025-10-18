@@ -157,8 +157,8 @@ export default function AnimationInit() {
           
           gsap.to(navbar, {
             maxWidth: '1100px',
-            duration: 0.6,
-            ease: 'expo.out',
+            duration: 0.3,
+            ease: 'power2.out',
             overwrite: 'auto'
           });
         } else if (currentScrollY <= 100 && isNavbarCompact) {
@@ -167,8 +167,8 @@ export default function AnimationInit() {
           
           gsap.to(navbar, {
             maxWidth: '1280px',
-            duration: 0.7,
-            ease: 'back.out(1.2)',
+            duration: 0.35,
+            ease: 'power2.out',
             overwrite: 'auto'
           });
         }
