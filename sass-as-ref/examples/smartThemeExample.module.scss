@@ -1,0 +1,137 @@
+// ============================================
+// Smart Theme Example
+// Change $theme in config.scss to see auto-switching!
+// ============================================
+
+@use '../core' as *;
+
+// ============================================
+// Just set $theme in config.scss:
+// $theme: light;  // or dark
+//
+// All theme-aware mixins automatically switch!
+// ============================================
+
+.tripCard {
+  // Glass effect - automatically uses dark variant in dark mode!
+  @include glassEffectThemed;
+  @include hoverLift;
+  border-radius: $borderRadiusLg;
+  @include padding($spacingLg, $spacingLg, $spacingLg, $spacingLg);
+  
+  .header {
+    @include flexBetween;
+    @include marginBottom($spacingMd);
+    
+    .title {
+      // Text color automatically switches!
+      @include colorTextPrimary;
+      font-size: $fontSizeXl;
+      font-weight: $fontWeightBold;
+    }
+  }
+  
+  .content {
+    @include marginBottom($spacingMd);
+    
+    .description {
+      // Secondary text color automatically switches!
+      @include colorTextSecondary;
+      line-height: $lineHeightRelaxed;
+    }
+  }
+  
+  .footer {
+    @include flexBetween;
+    @include paddingTop($spacingMd);
+    @include marginTop($spacingMd);
+    
+    // Border color automatically switches!
+    @include divider;
+    border-top-width: 1px;
+    border-top-style: solid;
+    
+    .price {
+      color: $primary;  // Primary colors stay same
+      font-size: $fontSize2xl;
+      font-weight: $fontWeightBold;
+    }
+  }
+  
+  // Responsive
+  @include mobile {
+    @include padding($spacingMd, $spacingMd, $spacingMd, $spacingMd);
+  }
+}
+
+// ----------------
+// Form Example with Theme Support
+// ----------------
+
+.formField {
+  @include marginBottom($spacingLg);
+  
+  .label {
+    @include colorTextPrimary;
+    @include marginBottom($spacingXs);
+    font-weight: $fontWeightMedium;
+  }
+  
+  .input {
+    // Input automatically styled for theme!
+    @include inputThemed;
+    @include padding($spacingSm, $spacingMd, $spacingSm, $spacingMd);
+    border-radius: $borderRadiusMd;
+    border-width: 1px;
+    border-style: solid;
+    width: 100%;
+    
+    &:focus {
+      border-color: $primary;
+      outline: none;
+    }
+  }
+  
+  .helperText {
+    @include colorTextSecondary;
+    @include marginTop($spacingXs);
+    font-size: $fontSizeSm;
+  }
+}
+
+// ----------------
+// Navbar with Theme Support
+// ----------------
+
+.navbar {
+  // Background automatically switches!
+  @include bgSecondary;
+  @include glassEffectThemed;
+  @include padding($spacingMd, $spacingXl, $spacingMd, $spacingXl);
+  @include flexBetween;
+  
+  .navLink {
+    @include colorTextPrimary;
+    @include padding($spacingSm, $spacingMd, $spacingSm, $spacingMd);
+    @include smoothTransition;
+    
+    &:hover {
+      // Hover background switches automatically!
+      @include backgroundColor($gray100, $gray800);
+    }
+    
+    &.active {
+      color: $primary;
+      @include borderLeft(2px, solid, $primary);
+    }
+  }
+}
+
+// ============================================
+// To switch themes, just change config.scss:
+// $theme: dark;
+//
+// All backgrounds, text colors, borders, and glass effects
+// automatically switch! No code changes needed!
+// ============================================
+

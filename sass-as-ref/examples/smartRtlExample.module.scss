@@ -1,0 +1,212 @@
+// ============================================
+// Smart RTL Example
+// Change $direction in config.scss to see auto-flipping!
+// ============================================
+
+@use '../core' as *;
+
+// ============================================
+// Just set $direction in config.scss:
+// $direction: ltr;  // or rtl
+//
+// All mixins automatically flip!
+// ============================================
+
+.tripCard {
+  // Glass effect
+  @include glassEffect;
+  @include hoverLift;
+  border-radius: $borderRadiusLg;
+  
+  // These automatically flip in RTL!
+  @include padding($spacingLg, $spacingLg, $spacingLg, $spacingLg);
+  @include marginLeft($spacingMd);
+  
+  .header {
+    @include flexBetween;
+    @include marginBottom($spacingMd);
+    
+    .title {
+      font-size: $fontSizeXl;
+      font-weight: $fontWeightBold;
+      @include textAlignLeft;  // Auto-flips to right in RTL!
+    }
+    
+    .icon {
+      @include marginLeft($spacingSm);  // Auto-flips to right in RTL!
+      @include flipIcon;  // Flips horizontally in RTL
+    }
+  }
+  
+  .content {
+    @include marginBottom($spacingMd);
+    
+    .description {
+      @include textAlignLeft;  // Auto-flips!
+      color: $textSecondary;
+    }
+    
+    .metadata {
+      @include flexRow;  // Auto-reverses in RTL!
+      gap: $spacingMd;
+      
+      .item {
+        .icon {
+          @include marginRight($spacingXs);  // Auto-flips!
+        }
+      }
+    }
+  }
+  
+  .footer {
+    @include flexBetween;
+    @include paddingTop($spacingMd);
+    @include marginTop($spacingMd);
+    @include borderLeft($borderWidthThin, solid, $gray200);  // Auto-flips!
+    border-top: 1px solid $gray200;
+    
+    .price {
+      @include textAlignLeft;  // Auto-flips!
+      font-size: $fontSize2xl;
+      font-weight: $fontWeightBold;
+      color: $primary;
+    }
+    
+    .bookButton {
+      @include marginLeft($spacingMd);  // Auto-flips!
+    }
+  }
+  
+  // Mobile responsive
+  @include mobile {
+    @include padding($spacingMd, $spacingMd, $spacingMd, $spacingMd);
+  }
+  
+  // Dark mode
+  @include darkMode {
+    @include glassEffectDark;
+  }
+}
+
+// ----------------
+// Navigation Example
+// ----------------
+
+.navbar {
+  @include flexBetween;
+  @include padding($spacingMd, $spacingXl, $spacingMd, $spacingXl);
+  @include glassEffect;
+  
+  .logo {
+    @include marginRight($spacingLg);  // Auto-flips!
+  }
+  
+  .navLinks {
+    @include flexRow;  // Auto-reverses in RTL!
+    gap: $spacingLg;
+    list-style: none;
+    
+    .navLink {
+      @include padding($spacingSm, $spacingSm, $spacingSm, $spacingSm);
+      
+      &.active {
+        @include borderLeft($borderWidthMedium, solid, $primary);  // Auto-flips!
+      }
+    }
+  }
+  
+  .actions {
+    @include flexRow;
+    gap: $spacingSm;
+    @include marginLeft(auto);  // Auto-flips!
+  }
+}
+
+// ----------------
+// Form Example
+// ----------------
+
+.formField {
+  @include marginBottom($spacingLg);
+  
+  .label {
+    @include textAlignLeft;  // Auto-flips!
+    @include marginBottom($spacingXs);
+    font-weight: $fontWeightMedium;
+  }
+  
+  .inputWrapper {
+    position: relative;
+    
+    .input {
+      width: 100%;
+      @include padding($spacingSm, $spacingMd, $spacingSm, $spacingMd);
+      border-radius: $borderRadiusMd;
+      
+      &.hasIconLeft {
+        @include paddingLeft($spacing3xl);  // Auto-flips!
+      }
+      
+      &.hasIconRight {
+        @include paddingRight($spacing3xl);  // Auto-flips!
+      }
+    }
+    
+    .iconLeft {
+      position: absolute;
+      @include left($spacingMd);  // Auto-flips!
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .iconRight {
+      position: absolute;
+      @include right($spacingMd);  // Auto-flips!
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+// ----------------
+// Chat Messages Example
+// ----------------
+
+.chatMessage {
+  @include flexRow;
+  @include marginBottom($spacingMd);
+  
+  &.sent {
+    justify-content: flex-end;
+    
+    .bubble {
+      background: $primary;
+      color: $white;
+      @include padding($spacingSm, $spacingMd, $spacingSm, $spacingMd);
+      @include marginLeft($spacing2xl);  // Auto-flips!
+      @include borderTopLeftRadius($borderRadiusLg);  // Auto-flips corners!
+      @include borderBottomRightRadius($borderRadiusLg);
+    }
+  }
+  
+  &.received {
+    justify-content: flex-start;
+    
+    .bubble {
+      background: $gray100;
+      @include padding($spacingSm, $spacingMd, $spacingSm, $spacingMd);
+      @include marginRight($spacing2xl);  // Auto-flips!
+      @include borderTopRightRadius($borderRadiusLg);  // Auto-flips corners!
+      @include borderBottomLeftRadius($borderRadiusLg);
+    }
+  }
+}
+
+// ============================================
+// To switch to RTL, just change config.scss:
+// $direction: rtl;
+//
+// All margins, paddings, positions, borders, and text
+// alignment automatically flip! No code changes needed!
+// ============================================
+

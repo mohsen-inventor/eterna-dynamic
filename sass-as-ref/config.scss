@@ -1,0 +1,82 @@
+// ============================================
+// xTrips Sass Configuration
+// Set global direction and theme here
+// ============================================
+
+// ----------------
+// DIRECTION CONFIGURATION
+// ----------------
+// Set this to 'rtl' for right-to-left languages (Arabic, Hebrew, Persian)
+// Set this to 'ltr' for left-to-right languages (English, etc.)
+
+$direction: ltr !default;
+
+// ----------------
+// THEME CONFIGURATION
+// ----------------
+// Set this to 'dark' for dark mode
+// Set this to 'light' for light mode
+
+$theme: light !default;
+
+// ----------------
+// Direction Helpers
+// ----------------
+
+// Check if current direction is RTL
+@function isRtl() {
+  @return $direction == rtl;
+}
+
+// Check if current direction is LTR
+@function isLtr() {
+  @return $direction == ltr;
+}
+
+// Get direction multiplier (-1 for RTL, 1 for LTR)
+// Useful for calculations
+@function directionMultiplier() {
+  @return if(isRtl(), -1, 1);
+}
+
+// ----------------
+// Theme Helpers
+// ----------------
+
+// Check if current theme is dark
+@function isDark() {
+  @return $theme == dark;
+}
+
+// Check if current theme is light
+@function isLight() {
+  @return $theme == light;
+}
+
+// Get color based on theme
+@function themeColor($lightColor, $darkColor) {
+  @return if(isDark(), $darkColor, $lightColor);
+}
+
+// ----------------
+// Debug Mode
+// ----------------
+
+$debugMode: false !default;
+
+// ----------------
+// Feature Flags
+// ----------------
+
+$enableGlassEffects: true !default;
+$enableAnimations: true !default;
+$enableResponsive: true !default;
+
+// ----------------
+// App-Specific Overrides
+// ----------------
+// These can be overridden in individual apps
+
+$appName: 'xtrips' !default;
+$appVersion: '1.0.0' !default;
+

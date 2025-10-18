@@ -1,0 +1,161 @@
+// ============================================
+// Responsive Mixins
+// ============================================
+
+@use './config' as *;
+@use './variables' as *;
+
+// ----------------
+// Media Query Mixins (Mobile First)
+// ----------------
+
+@mixin xs {
+  @media (min-width: #{$breakpointXs}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: #{$breakpointSm}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$breakpointMd}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: #{$breakpointLg}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$breakpointXl}) {
+    @content;
+  }
+}
+
+// ----------------
+// Desktop First (max-width)
+// ----------------
+
+@mixin xsDown {
+  @media (max-width: #{$breakpointSm - 1}) {
+    @content;
+  }
+}
+
+@mixin smDown {
+  @media (max-width: #{$breakpointMd - 1}) {
+    @content;
+  }
+}
+
+@mixin mdDown {
+  @media (max-width: #{$breakpointLg - 1}) {
+    @content;
+  }
+}
+
+@mixin lgDown {
+  @media (max-width: #{$breakpointXl - 1}) {
+    @content;
+  }
+}
+
+// ----------------
+// Between Breakpoints
+// ----------------
+
+@mixin between($min, $max) {
+  @media (min-width: #{$min}) and (max-width: #{$max - 1}) {
+    @content;
+  }
+}
+
+@mixin custom($breakpoint) {
+  @media (min-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+// ----------------
+// Device-Specific
+// ----------------
+
+@mixin mobile {
+  @media (max-width: #{$breakpointMd - 1}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpointMd}) and (max-width: #{$breakpointLg - 1}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpointLg}) {
+    @content;
+  }
+}
+
+// ----------------
+// Orientation
+// ----------------
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+// ----------------
+// Display Features
+// ----------------
+
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+@mixin darkMode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin lightMode {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+}
+
+@mixin reducedMotion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// ----------------
+// Container Queries
+// ----------------
+
+@mixin containerQuery($size) {
+  @container (min-width: #{$size}) {
+    @content;
+  }
+}
+

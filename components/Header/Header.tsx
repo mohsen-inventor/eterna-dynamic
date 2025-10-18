@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import './Header.module.scss';
+import css from './Header.module.scss';
 import SearchModal from '../SearchModal/SearchModal';
 
 export default function Header() {
@@ -13,8 +13,8 @@ export default function Header() {
     const gsap = (window as any).gsap;
     
     // Initialize Talk Button Animation
-    const talkButton = document.querySelector('.btn--primary');
-    const gradientOverlay = talkButton?.querySelector('.btn__gradient-overlay');
+    const talkButton = document.querySelector(`.${css.btnPrimary}`);
+    const gradientOverlay = talkButton?.querySelector(`.${css.btnGradientOverlay}`);
     
     if (talkButton && gradientOverlay) {
       talkButton.addEventListener('mouseenter', () => {
@@ -39,12 +39,12 @@ export default function Header() {
 
   return (
     <>
-      <header className="header" role="banner">
-        <nav className="navbar" aria-label="Main navigation">
+      <header className={css.header} role="banner">
+        <nav className={css.navbar} aria-label="Main navigation">
           {/* Logo/Brand */}
-          <a href="#" className="navbar__brand" aria-label="EternaCloud Home">
-            <div className="navbar__logo">
-              <svg className="navbar__logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a href="#" className={css.navbarBrand} aria-label="EternaCloud Home">
+            <div className={css.navbarLogo}>
+              <svg className={css.navbarLogoIcon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" style={{ stopColor: '#4A70F7', stopOpacity: 1 }} />
@@ -56,32 +56,32 @@ export default function Header() {
                 </defs>
                 <circle cx="12" cy="12" r="10" stroke="url(#logoGradient)" strokeWidth="2" fill="none"/>
               </svg>
-              <span className="navbar__brand-text">EternaCloud</span>
+              <span className={css.navbarBrandText}>EternaCloud</span>
             </div>
           </a>
           
           {/* Desktop Menu */}
-          <div className="navbar__menu" id="navbarMenu">
-            <ul className="navbar__nav" role="menubar">
+          <div className={css.navbarMenu} id="navbarMenu">
+            <ul className={css.navbarNav} role="menubar">
               <li role="none">
-                <span className="navbar__link" role="menuitem">What We Do</span>
+                <span className={css.navbarLink} role="menuitem">What We Do</span>
               </li>
               <li role="none">
-                <span className="navbar__link" role="menuitem">Our Approach</span>
+                <span className={css.navbarLink} role="menuitem">Our Approach</span>
               </li>
               <li role="none">
-                <span className="navbar__link" role="menuitem">About Us</span>
+                <span className={css.navbarLink} role="menuitem">About Us</span>
               </li>
               <li role="none">
-                <span className="navbar__link" role="menuitem">Insights</span>
+                <span className={css.navbarLink} role="menuitem">Insights</span>
               </li>
             </ul>
           </div>
           
           {/* Actions */}
-          <div className="navbar__actions">
+          <div className={css.navbarActions}>
             <button 
-              className="navbar__search" 
+              className={css.navbarSearch} 
               aria-label="Search"
               onClick={() => setIsSearchOpen(true)}
             >
@@ -90,9 +90,9 @@ export default function Header() {
                 <path d="m21 21-4.35-4.35" stroke="currentColor" strokeWidth="2"/>
               </svg>
             </button>
-            <a href="#contact" className="btn btn--primary">
-              <span className="btn__gradient-overlay"></span>
-              <span className="btn__text">LET&apos;S TALK</span>
+            <a href="#contact" className={css.btnPrimary}>
+              <span className={css.btnGradientOverlay}></span>
+              <span className={css.btnText}>LET&apos;S TALK</span>
             </a>
           </div>
         </nav>

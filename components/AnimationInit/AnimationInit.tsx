@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect } from 'react';
+import css from '../Header/Header.module.scss';
 
 export default function AnimationInit() {
   useEffect(() => {
-    // Check if GSAP is loaded
     if (typeof window === 'undefined' || !(window as any).gsap) {
       return;
     }
@@ -117,7 +117,7 @@ export default function AnimationInit() {
         }
       }
 
-      // Process Section Animations with Intersection Observer
+      // Process Section Animations
       const processSection = document.querySelector('.process');
       if (processSection) {
         const observerOptions = {
@@ -145,8 +145,7 @@ export default function AnimationInit() {
       }
 
       // Header scroll behavior
-      const header = document.querySelector('.header');
-      const navbar = document.querySelector('.navbar');
+      const navbar = document.querySelector(`.${css.navbar}`);
       let isNavbarCompact = false;
 
       const handleScroll = () => {
@@ -154,7 +153,7 @@ export default function AnimationInit() {
 
         if (currentScrollY > 100 && !isNavbarCompact) {
           isNavbarCompact = true;
-          navbar?.classList.add('navbar--glass');
+          navbar?.classList.add(css.navbarGlass);
           
           gsap.to(navbar, {
             maxWidth: '1100px',
@@ -164,7 +163,7 @@ export default function AnimationInit() {
           });
         } else if (currentScrollY <= 100 && isNavbarCompact) {
           isNavbarCompact = false;
-          navbar?.classList.remove('navbar--glass');
+          navbar?.classList.remove(css.navbarGlass);
           
           gsap.to(navbar, {
             maxWidth: '1280px',
@@ -188,4 +187,3 @@ export default function AnimationInit() {
 
   return null;
 }
-

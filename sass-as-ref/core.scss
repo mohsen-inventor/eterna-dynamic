@@ -1,0 +1,39 @@
+// ============================================
+// xTrips UI - Core (No CSS Output)
+// For use in CSS Modules - imports only mixins, functions, and variables
+// NO base styles or helper classes that generate CSS
+// ============================================
+
+// Import order matters!
+
+// 1. Config (no output) - Contains global $direction and $theme variables
+@forward './config';
+
+// 2. Functions (no output)
+@forward './functions';
+
+// 3. Variables (no output)
+@forward './variables';
+
+// 4. Mixins (no output) - Smart mixins that check $direction and $theme
+@forward './mixins';
+@forward './responsive';
+@forward './theme';
+
+// ============================================
+// Usage in CSS Module files (*.module.scss):
+// 
+// @use '@xtrips/ui/sass/core' as *;
+//
+// .component {
+//   @include marginLeft($spacingMd);     // Auto-flips in RTL!
+//   @include paddingRight($spacingLg);   // Auto-flips in RTL!
+//   @include textAlignLeft;              // Auto-flips in RTL!
+//   @include backgroundColor($white, $darkBgSecondary);  // Auto-switches theme!
+//   @include glassEffectThemed;          // Auto-switches theme!
+// }
+//
+// All mixins check $direction and $theme variables!
+// Change once, rebuild, everything updates!
+// ============================================
+

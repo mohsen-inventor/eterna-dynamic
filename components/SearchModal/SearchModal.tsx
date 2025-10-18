@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import './SearchModal.module.scss';
+import css from './SearchModal.module.scss';
 
 interface SearchModalProps {
   isOpen: boolean;
@@ -29,11 +29,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="search-modal search-modal--active" aria-hidden={!isOpen}>
-      <div className="search-modal__overlay" onClick={onClose} />
-      <div className="search-modal__content">
+    <div className={`${css.searchModal} ${css.searchModalActive}`} aria-hidden={!isOpen}>
+      <div className={css.searchModalOverlay} onClick={onClose} />
+      <div className={css.searchModalContent}>
         <button 
-          className="search-modal__close" 
+          className={css.searchModalClose} 
           onClick={onClose}
           aria-label="Close search"
         >
@@ -41,11 +41,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
             <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
-        <div className="search-modal__input-container">
+        <div className={css.searchModalInputContainer}>
           <input 
             ref={inputRef}
             type="text" 
-            className="search-modal__input" 
+            className={css.searchModalInput} 
             placeholder="Type to search"
             id="searchInput"
           />
@@ -54,4 +54,3 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     </div>
   );
 }
-
