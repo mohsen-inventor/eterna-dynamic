@@ -1,27 +1,39 @@
 // ============================================
-// Sanity Schemas - Clean & Organized
+// Sanity Schemas - Organized Hierarchically
 // ============================================
-// Only includes schemas specific to this app
+// Structure: Global Settings → Home Page Sections
 
-// Global site-wide settings
-import globalSettings from './globalSettings';
+// --------------------------------------------
+// GLOBAL SETTINGS (Site-wide configuration)
+// --------------------------------------------
+import siteInfo from './global/siteInfo';
+import headerSettings from './global/headerSettings';
+import mainMenu from './global/mainMenu';
+import footerSettings from './global/footerSettings';
+import seoSettings from './global/seoSettings';
 
-// Page-level content (organized by page)
-import homePage from './homePage';
+// --------------------------------------------
+// HOME PAGE SECTIONS
+// --------------------------------------------
+import heroSection from './home/heroSection';
+import servicesSection from './home/servicesSection';
+import solutionsSection from './home/solutionsSection';
+import processSection from './home/processSection';
 
-// Reusable content elements
-import serviceCard from './serviceCard';
-
-// ============================================
+// --------------------------------------------
 // Export Schema Types
-// ============================================
+// --------------------------------------------
 export const schemaTypes = [
-  // 🌐 GLOBAL SETTINGS (site-wide)
-  globalSettings,
+  // === GLOBAL SETTINGS ===
+  siteInfo,
+  headerSettings,
+  mainMenu,
+  footerSettings,
+  seoSettings,
   
-  // 🏠 PAGES (page content)
-  homePage,
-  
-  // 📦 ELEMENTS (reusable components)
-  serviceCard,
+  // === HOME PAGE SECTIONS ===
+  heroSection,
+  servicesSection,
+  solutionsSection,
+  processSection,
 ];

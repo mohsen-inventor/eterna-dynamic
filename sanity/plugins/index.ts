@@ -1,0 +1,2 @@
+export { fixedTitle } from './fixedTitle';
+

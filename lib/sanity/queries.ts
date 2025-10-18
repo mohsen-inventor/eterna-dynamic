@@ -7,10 +7,57 @@ import { client } from './client';
 // --------------------------------------------
 // GLOBAL SETTINGS
 // --------------------------------------------
-export async function getGlobalSettings() {
-  const query = `*[_type == "globalSettings"][0]{
+export async function getSiteInfo() {
+  const query = `*[_type == "siteInfo"][0]{
     siteName,
     siteTagline,
+    "logoUrl": logo.asset->url,
+    "faviconUrl": favicon.asset->url
+  }`;
+  
+  return await client.fetch(query);
+}
+
+export async function getHeaderSettings() {
+  const query = `*[_type == "headerSettings"][0]{
+    "headerLogoUrl": headerLogo.asset->url,
+    ctaButtonText,
+    ctaButtonLink
+  }`;
+  
+  return await client.fetch(query);
+}
+
+export async function getMainMenu() {
+  const query = `*[_type == "mainMenu"][0]{
+    menuItems[] | order(order asc) {
+      title,
+      link,
+      order
+    }
+  }`;
+  
+  return await client.fetch(query);
+}
+
+export async function getFooterSettings() {
+  const query = `*[_type == "footerSettings"][0]{
+    footerText,
+    footerLinks[] {
+      title,
+      url
+    },
+    socialLinks[] {
+      platform,
+      url
+    }
+  }`;
+  
+  return await client.fetch(query);
+}
+
+export async function getSEOSettings() {
+  const query = `*[_type == "seoSettings"][0]{
     seoTitle,
     seoDescription,
     seoKeywords,
@@ -22,75 +69,60 @@ export async function getGlobalSettings() {
 }
 
 // --------------------------------------------
-// HOME PAGE (All sections in one document)
+// HOME PAGE SECTIONS
 // --------------------------------------------
-export async function getHomePage() {
-  const query = `*[_type == "homePage"][0]{
-    // Hero Section
-    heroSection {
-      tagline,
-      headline,
-      description,
-      videoUrl
-    },
-    
-    // Services Section
-    servicesSection {
+export async function getHeroSection() {
+  const query = `*[_type == "heroSection"][0]{
+    tagline,
+    headline,
+    description,
+    videoUrl
+  }`;
+  
+  return await client.fetch(query);
+}
+
+export async function getServicesSection() {
+  const query = `*[_type == "servicesSection"][0]{
+    title,
+    tagline,
+    description,
+    services[] | order(order asc) {
+      stage,
       title,
-      tagline,
-      description,
-      "services": services[]-> {
-        _id,
-        stage,
-        title,
-        features,
-        order,
-        isPublished
-      }
-    },
-    
-    // Solutions Section
-    solutionsSection {
-      badge {
-        text,
-        icon
-      },
-      title,
-      subtitle,
-      problems,
-      solutions,
-      cosmosVideoUrl
-    },
-    
-    // Process Section
-    processSection {
-      badge {
-        text,
-        icon
-      },
-      title,
-      tagline,
-      description,
-      functions[] {
-        name,
-        items
-      }
+      features,
+      order
     }
   }`;
   
   return await client.fetch(query);
 }
 
-// --------------------------------------------
-// SERVICE CARDS (Individual elements)
-// --------------------------------------------
-export async function getServiceCards() {
-  const query = `*[_type == "serviceCard" && isPublished == true] | order(order asc) {
-    _id,
-    stage,
+export async function getSolutionsSection() {
+  const query = `*[_type == "solutionsSection"][0]{
+    badgeText,
+    badgeIcon,
     title,
-    features,
-    order
+    subtitle,
+    problems,
+    solutions,
+    cosmosVideoUrl
+  }`;
+  
+  return await client.fetch(query);
+}
+
+export async function getProcessSection() {
+  const query = `*[_type == "processSection"][0]{
+    badgeText,
+    badgeIcon,
+    title,
+    tagline,
+    description,
+    functions[] {
+      name,
+      items
+    }
   }`;
   
   return await client.fetch(query);
@@ -101,43 +133,43 @@ export async function getServiceCards() {
 // (For backward compatibility with current app)
 // --------------------------------------------
 export async function getHomePageData() {
-  const homeData = await getHomePage();
-  
-  if (!homeData) {
-    return {
-      settings: null,
-      servicesSection: null,
-      services: [],
-      solutionsSection: null,
-      processSection: null,
-    };
-  }
+  const [
+    heroData,
+    servicesData,
+    solutionsData,
+    processData,
+  ] = await Promise.all([
+    getHeroSection(),
+    getServicesSection(),
+    getSolutionsSection(),
+    getProcessSection(),
+  ]);
   
   return {
     settings: {
-      heroTagline: homeData.heroSection?.tagline,
-      heroHeadline: homeData.heroSection?.headline,
-      heroDescription: homeData.heroSection?.description,
+      heroTagline: heroData?.tagline,
+      heroHeadline: heroData?.headline,
+      heroDescription: heroData?.description,
     },
     servicesSection: {
-      title: homeData.servicesSection?.title,
-      tagline: homeData.servicesSection?.tagline,
-      description: homeData.servicesSection?.description,
+      title: servicesData?.title,
+      tagline: servicesData?.tagline,
+      description: servicesData?.description,
     },
-    services: homeData.servicesSection?.services?.filter((s: any) => s.isPublished !== false) || [],
+    services: servicesData?.services || [],
     solutionsSection: {
-      badgeText: homeData.solutionsSection?.badge?.text,
-      title: homeData.solutionsSection?.title,
-      subtitle: homeData.solutionsSection?.subtitle,
-      problems: homeData.solutionsSection?.problems,
-      solutions: homeData.solutionsSection?.solutions,
+      badgeText: solutionsData?.badgeText,
+      title: solutionsData?.title,
+      subtitle: solutionsData?.subtitle,
+      problems: solutionsData?.problems,
+      solutions: solutionsData?.solutions,
     },
     processSection: {
-      badgeText: homeData.processSection?.badge?.text,
-      title: homeData.processSection?.title,
-      tagline: homeData.processSection?.tagline,
-      description: homeData.processSection?.description,
-      functions: homeData.processSection?.functions,
+      badgeText: processData?.badgeText,
+      title: processData?.title,
+      tagline: processData?.tagline,
+      description: processData?.description,
+      functions: processData?.functions,
     },
   };
 }
