@@ -4,6 +4,7 @@ import Hero from '@/components/Hero/Hero';
 import Services from '@/components/Services/Services';
 import Solutions from '@/components/Solutions/Solutions';
 import Process from '@/components/Process/Process';
+import AnimationInit from '@/components/AnimationInit/AnimationInit';
 
 async function getHomePageData() {
   const [settings, servicesSection, services, solutionsSection, processSection] = await Promise.all([
@@ -84,9 +85,26 @@ export default async function Home() {
     }
   ];
 
+  const defaultProblems = [
+    'Fragmented context and facts spread across minds and orgs',
+    'Inconsistent service experiences depending on the vendor',
+    'Disruptive reactions to things that shouldn\'t be happening',
+    'Repetitive double-checking to ensure details are accurate',
+    'Overly-complex workloads drain capacity from high-value teams'
+  ];
+
+  const defaultSolutions = [
+    'Clear context and on-hand facts expedite decision-making',
+    'Consistent service across vendors through one point of contact',
+    'Unified layers of dependencies prevent risks and costly surprises',
+    'Continual validations sync to your requirements at every stage',
+    'Simple interactions with our teams give you ready-to-go deliverables'
+  ];
+
   return (
     <>
       <Header />
+      <AnimationInit />
       
       <main id="main-content">
         {/* Hero Section */}
@@ -109,8 +127,8 @@ export default async function Home() {
           badgeText={solutionsSection?.badgeText || 'Freedom'}
           title={solutionsSection?.title || 'Stop playing catch up.'}
           subtitle={solutionsSection?.subtitle || 'Enjoy peace of mind.'}
-          problems={solutionsSection?.problems || ['Fragmented context across teams', 'Inconsistent vendor experiences', 'Disruptive reactions to issues', 'Repetitive double-checking', 'Complex workloads drain capacity']}
-          solutions={solutionsSection?.solutions || ['Clear context expedites decisions', 'Consistent service across vendors', 'Unified dependencies prevent risks', 'Continual validations sync requirements', 'Simple interactions, ready deliverables']}
+          problems={solutionsSection?.problems || defaultProblems}
+          solutions={solutionsSection?.solutions || defaultSolutions}
         />
 
         {/* Process Section */}

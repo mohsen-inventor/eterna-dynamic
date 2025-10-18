@@ -35,6 +35,33 @@
     border-radius: 10px;
     height: 60px;
   }
+  
+  // Apple-style liquid glass effect on scroll
+  &--glass {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      0 1px 0 rgba(255, 255, 255, 0.5) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.02) inset;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+      );
+      pointer-events: none;
+      opacity: 0.6;
+    }
+  }
 }
 
 .navbar__brand {
@@ -46,18 +73,25 @@
   &:hover {
     opacity: 0.8;
   }
+  
+  opacity: 1 !important;
 }
 
 .navbar__logo {
   display: flex;
   align-items: center;
   gap: 12px;
+  position: relative;
+  z-index: 11;
 }
 
 .navbar__logoIcon {
   width: 32px;
   height: 32px;
   flex-shrink: 0;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 12;
 }
 
 .navbar__brandText {
@@ -67,6 +101,9 @@
   color: #2A2A60;
   line-height: 1;
   letter-spacing: -0.02em;
+  opacity: 1 !important;
+  position: relative;
+  z-index: 12;
 }
 
 .navbar__menu {

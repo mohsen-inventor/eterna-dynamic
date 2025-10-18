@@ -21,9 +21,9 @@ export default function Services({ title, tagline, description, services }: Serv
   const sortedServices = [...services].sort((a, b) => a.order - b.order);
 
   return (
-    <section className={styles.services} id="services">
+    <section className={`${styles.services} services`} id="services">
       <div className="container">
-        <div className={styles.services__header}>
+        <div className={`${styles.services__header} services__header`}>
           <h2 className={styles.services__title}>{title}</h2>
           <div className={styles.services__tagline}>
             <span className={styles.gradientText}>{tagline}</span>
@@ -33,7 +33,7 @@ export default function Services({ title, tagline, description, services }: Serv
         
         <div className={styles.services__grid}>
           {sortedServices.map((service) => (
-            <article key={service._id} className={styles.serviceCard}>
+            <article key={service._id} className={`${styles.serviceCard} service-card`}>
               <div className={styles.serviceCard__stage}>
                 <div className={styles.serviceCard__stageIcon}>
                   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,4 +64,3 @@ export default function Services({ title, tagline, description, services }: Serv
     </section>
   );
 }
-

@@ -15,9 +15,9 @@ interface ProcessProps {
 
 export default function Process({ badgeText, title, tagline, description, functions }: ProcessProps) {
   return (
-    <section className={styles.process} id="process">
+    <section className={`${styles.process} process`} id="process">
       <div className="container">
-        <div className={styles.process__header}>
+        <div className={`${styles.process__header} process__header`}>
           <div className={styles.process__badge}>
             <svg className={styles.process__badgeIcon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none"/>
@@ -35,7 +35,7 @@ export default function Process({ badgeText, title, tagline, description, functi
         <div className={styles.process__contentWrapper}>
           <div className={styles.process__functions}>
             {functions.map((func, idx) => (
-              <div key={idx} className={styles.process__function}>
+              <div key={idx} className={`${styles.process__function} process__function`}>
                 <div className={styles.process__functionHeader}>
                   <div className={styles.process__functionCircle}></div>
                   <span className={styles.process__functionTitle}>{func.name}</span>
@@ -53,7 +53,7 @@ export default function Process({ badgeText, title, tagline, description, functi
           </div>
           
           {/* Wavy Gradient Graphic */}
-          <div className={styles.process__wave}>
+          <div className={`${styles.process__wave} process__wave`}>
             <picture>
               <source media="(max-width: 768px)" srcSet="/images/wave-v.avif" />
               <img src="/images/wave-h.png" alt="Decorative wave graphic" className={styles.process__waveImage} />
@@ -64,4 +64,3 @@ export default function Process({ badgeText, title, tagline, description, functi
     </section>
   );
 }
-

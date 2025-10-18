@@ -9,8 +9,8 @@ export default function Header() {
 
   return (
     <>
-      <header className={styles.header} role="banner">
-        <nav className={styles.navbar} aria-label="Main navigation">
+      <header className={`${styles.header} header`} role="banner">
+        <nav className={`${styles.navbar} navbar`} aria-label="Main navigation">
           {/* Logo/Brand */}
           <a href="#" className={styles.navbar__brand} aria-label="EternaCloud Home">
             <div className={styles.navbar__logo}>
@@ -62,7 +62,7 @@ export default function Header() {
             </button>
             <a href="#contact" className={styles.btn}>
               <span className={styles.btn__gradientOverlay}></span>
-              <span className={styles.btn__text}>LET'S TALK</span>
+              <span className={styles.btn__text}>LET&apos;S TALK</span>
             </a>
           </div>
         </nav>

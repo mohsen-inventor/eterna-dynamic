@@ -1,14 +1,25 @@
 # EternaCloud - Dynamic Landing Page
 
-A modern, fully dynamic landing page built with Next.js 15, Sass modules, TypeScript, and Sanity CMS. Converted from a static site to a fully content-managed experience.
+A pixel-perfect conversion of the EternaCloud static site to a fully dynamic Next.js 15 application with Sanity CMS. Features advanced GSAP animations, responsive design, and complete content management.
+
+## ✨ Features
+
+- **🎨 Pixel-Perfect Design** - Exact match to original static site
+- **🚀 Next.js 15** - Latest React framework with App Router
+- **📝 Sanity CMS** - Full content management for all sections
+- **💫 GSAP Animations** - Smooth scroll triggers and interactions
+- **📱 Fully Responsive** - Mobile, tablet, desktop optimized
+- **🎭 Interactive Components** - Hover effects, modal, animated gradients
+- **♿ Accessible** - ARIA labels, skip links, focus states
+- **🎨 Sass Modules** - Component-scoped styling
 
 ## Tech Stack
 
 - **Next.js 15** - React framework with App Router
 - **TypeScript** - Type-safe development
-- **Sass Modules** - Scoped, modular CSS with Sass
-- **Sanity CMS** - Headless CMS for content management
-- **GSAP** - High-performance animations
+- **Sass Modules** - Scoped CSS with advanced Sass features
+- **Sanity CMS** - Headless content management
+- **GSAP 3.12** - Animation library with ScrollTrigger
 - **React 18** - Latest React features
 
 ## Project Structure
@@ -16,44 +27,41 @@ A modern, fully dynamic landing page built with Next.js 15, Sass modules, TypeSc
 ```
 eterna-dynamic/
 ├── app/                      # Next.js App Router
-│   ├── layout.tsx           # Root layout
-│   ├── page.tsx             # Home page
-│   └── globals.scss         # Global styles
+│   ├── layout.tsx           # Root layout with GSAP scripts
+│   ├── page.tsx             # Home page with all sections
+│   └── globals.scss         # Global styles, scrollbar, selections
 ├── components/              # React components
-│   ├── Header/             # Navigation header
-│   ├── SearchModal/        # Search modal overlay
-│   ├── Hero/               # Hero section with video bg
-│   ├── Services/           # Services grid with cards
-│   ├── Solutions/          # Problems/Solutions comparison
-│   ├── Process/            # Process functions display
-│   └── Footer/             # Footer component
-├── lib/                    # Utilities and libraries
-│   └── sanity/
-│       ├── client.ts       # Sanity client configuration
-│       ├── image.ts        # Image URL builder
-│       └── types.ts        # TypeScript types
-├── sass/                   # Global Sass utilities
-│   ├── _variables.scss     # Variables (colors, fonts, spacing)
-│   └── _mixins.scss        # Mixins and utilities
-├── sanity/                 # Sanity Studio
-│   ├── schemas/            # Content schemas
-│   │   ├── siteSettings.ts # Global site settings & hero
-│   │   ├── service.ts      # Individual service cards
+│   ├── AnimationInit/       # GSAP animation initialization
+│   ├── Header/              # Navigation with glass morphism
+│   ├── SearchModal/         # Animated search overlay
+│   ├── Hero/                # Hero with video background
+│   ├── Services/            # 4-column service cards
+│   ├── Solutions/           # Problems/Solutions with cosmos
+│   ├── Process/             # Process functions with wave
+│   └── Footer/              # Footer component
+├── lib/sanity/              # Sanity utilities
+│   ├── client.ts            # Configured Sanity client
+│   ├── image.ts             # Image URL builder
+│   └── types.ts             # TypeScript types
+├── sass/                    # Global Sass
+│   ├── _variables.scss      # Colors, fonts, spacing
+│   └── _mixins.scss         # Reusable mixins
+├── sanity/                  # Sanity Studio
+│   ├── schemas/             # Content schemas
+│   │   ├── siteSettings.ts  # Hero content
+│   │   ├── service.ts       # Service cards
 │   │   ├── servicesSection.ts
 │   │   ├── solutionsSection.ts
 │   │   ├── processSection.ts
-│   │   ├── page.ts         # Generic pages
-│   │   ├── post.ts         # Blog posts
-│   │   └── index.ts
-│   ├── sanity.config.ts    # Sanity configuration
-│   └── sanity.cli.ts       # Sanity CLI configuration
-├── public/                 # Static assets
-│   ├── images/             # Image assets
-│   └── videos/             # Video assets
-└── package.json
+│   │   └── ...
+│   └── sanity.config.ts     # Sanity configuration
+├── public/                  # Static assets
+│   ├── images/              # Logos, backgrounds, wave graphics
+│   └── videos/              # Hero & cosmos videos
+└── static-site/             # Original static site (reference)
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
 ### 1. Install Dependencies
 
@@ -61,137 +69,170 @@ eterna-dynamic/
 npm install
 ```
 
-### 2. Set Up Sanity
+### 2. Run Applications
 
-Initialize your Sanity project:
+**Start both servers (2 separate terminals):**
 
 ```bash
-cd sanity
-npx sanity init
-```
-
-Follow the prompts to create a new project or connect to an existing one.
-
-### 3. Configure Environment Variables
-
-Create a `.env.local` file in the root directory:
-
-```env
-NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
-NEXT_PUBLIC_SANITY_DATASET=production
-NEXT_PUBLIC_SANITY_API_VERSION=2024-10-18
-SANITY_API_TOKEN=your_token_here
-```
-
-Get your API token from https://www.sanity.io/manage
-
-### 4. Run Development Servers
-
-You'll need two terminal windows:
-
-**Terminal 1 - Next.js:**
-```bash
+# Terminal 1 - Next.js
 npm run dev
-```
-Opens at [http://localhost:3000](http://localhost:3000)
 
-**Terminal 2 - Sanity Studio:**
-```bash
+# Terminal 2 - Sanity Studio
 npm run sanity
 ```
-Opens at [http://localhost:3333](http://localhost:3333)
 
-### 5. Create Content in Sanity
+Applications will be available at:
+- **Next.js:** http://localhost:3000
+- **Sanity Studio:** http://localhost:3333
 
-1. Open Sanity Studio at [http://localhost:3333](http://localhost:3333)
-2. Create the following content:
+### 3. View the Site
 
-#### Site Settings
-- Hero Tagline: "Product Lifecycle Partner"
-- Hero Headline: "Design and build with ease."
-- Hero Description: Your description
+The site displays with **fallback content** by default, so you can see the full design immediately!
 
-#### Services Section
-- Title: "Trusted by hyperscale teams"
-- Tagline: "from concept to completion."
-- Description: Your description
+## 🎯 Implemented Features
 
-#### Create 4 Service Documents
-1. **Design**
-   - Order: 1
-   - Stage: "Design"
-   - Title: "Solutions without the heavy lifting."
-   - Features: ["Dedicated specialists", "Decision-ready solutions"]
+### Header / Navigation
+✅ Fixed position with animated glass morphism on scroll  
+✅ Logo with animated gradient SVG  
+✅ Navigation menu with hover underlines  
+✅ Search button with modal  
+✅ "LET'S TALK" CTA with animated gradient overlay  
+✅ GSAP-powered width animation on scroll  
 
-2. **Onboarding**
-   - Order: 2
-   - Stage: "Onboarding"
-   - Title: "Vendors are kept on track for you."
-   - Features: ["Cross-organizational alignment", "Follow-through ownership"]
+### Hero Section
+✅ Full-screen video background  
+✅ Gradient text with infinite animation  
+✅ Overlay with gradient fade to black  
+✅ Centered content with vertical offset  
+✅ Responsive typography  
 
-3. **Delivery**
-   - Order: 3
-   - Stage: "Delivery"
-   - Title: "Get it right the first time—every time."
-   - Features: ["Expert-led execution", "Change ownership"]
+### Services Section
+✅ 4-column grid (responsive to 2-col, then 1-col)  
+✅ Background image with proper sizing  
+✅ Service cards with glass effect  
+✅ Stage indicators with progressive fill  
+✅ Feature lists with check icons  
+✅ Button with animated gradient overlay  
+✅ Card hover effects  
+✅ GSAP scroll-triggered fade-in animations  
 
-4. **Deployment**
-   - Order: 4
-   - Stage: "Deployment"
-   - Title: "Context always carries forward."
-   - Features: ["Clean handoffs", "Turnkey outcomes"]
+### Solutions Section
+✅ 3-column layout (problems | cosmos | solutions)  
+✅ Cosmos video with circular mask  
+✅ Problem cards (left) with negative icons  
+✅ Solution cards (right) with positive icons  
+✅ Badge with icon  
+✅ Gradient animated subtitle  
+✅ GSAP staggered animations from left/right  
+✅ Fixed card heights (100px)  
 
-#### Solutions Section
-- Badge Text: "Freedom"
-- Title: "Stop playing catch up."
-- Subtitle: "Enjoy peace of mind."
-- Problems: Array of problem statements
-- Solutions: Array of solution statements
+### Process Section
+✅ 4 process functions with staggered vertical positions  
+✅ Animated rotating gradient circles  
+✅ Flowing gradient lines with mask  
+✅ Function items aligned to the left of lines  
+✅ Wave graphic at bottom  
+✅ Intersection Observer scroll animations  
+✅ Specific hover effects per function  
+✅ Complex positioning with left offsets  
 
-#### Process Section
-- Badge Text: "Dependable Precision"
-- Title: "One practical, holistic service."
-- Tagline: "Exponential daily value."
-- Description: Your description
-- Functions: Array of objects with name and items
+### Global Features
+✅ Custom purple scrollbar  
+✅ Custom text selection (purple)  
+✅ Skip to main content link  
+✅ Focus states for accessibility  
+✅ All keyframe animations  
+✅ Responsive breakpoints  
+✅ GSAP ScrollTrigger integration  
 
-## Features
+## 📝 Content Management
 
-### Dynamic Content Management
-- All page content managed through Sanity CMS
-- Real-time preview and editing
-- Structured content schemas
-- Image and video asset management
+Open Sanity Studio at http://localhost:3333 to edit:
 
-### Performance
-- Server-side rendering with Next.js 15
-- Optimized images and videos
-- Minimal JavaScript bundle
-- Fast page loads
+### Site Settings (Hero)
+- Hero Tagline
+- Hero Headline  
+- Hero Description
+- Hero Video (optional)
 
-### Styling with Sass Modules
-Component-scoped styling with responsive design:
+### Services Section
+- Title
+- Tagline
+- Description
 
-```tsx
-import styles from './Component.module.scss';
+### Service Documents (Create 4)
+- Stage name (Design, Onboarding, Delivery, Deployment)
+- Title
+- Features array
+- Display order
 
-export default function Component() {
-  return <div className={styles.container}>Content</div>;
-}
-```
+### Solutions Section
+- Badge text
+- Title
+- Subtitle
+- Problems array (5 items)
+- Solutions array (5 items)
+- Cosmos video (optional)
 
-Global Sass variables and mixins available in `sass/` directory.
+### Process Section
+- Badge text
+- Title
+- Tagline
+- Description
+- Functions array (4 objects with name and items)
 
-### Sections
+## 🎨 Design System
 
-1. **Hero** - Full-screen hero with video background and gradient text animation
-2. **Services** - 4-column grid of service cards with hover effects
-3. **Solutions** - 3-column layout comparing problems vs solutions with animated cosmos video
-4. **Process** - 4 process functions with decorative wave graphic
+### Colors
+- **Primary:** `#1a1a1a`
+- **Accent:** `#00d4ff`
+- **Purple:** `#8B5CF6`
+- **Gradients:** Blue → Purple → Orange
 
-## Deployment
+### Typography
+- **Font:** Inter (Google Fonts)
+- **Sizes:** 0.75rem - 4.5rem (responsive)
+- **Weights:** 300, 400, 500, 600, 700
 
-### Deploy Next.js to Vercel
+### Spacing
+- **Unit:** 8px
+- **Scale:** xs(8) sm(16) md(24) lg(32) xl(48) 2xl(64) 3xl(80) 4xl(96) 5xl(128)
+
+### Breakpoints
+- **Mobile:** < 576px
+- **Tablet:** 576px - 992px  
+- **Desktop:** > 992px
+- **Large:** > 1200px
+
+## 🎭 Animations
+
+### GSAP Animations
+- Header width animation on scroll
+- Services section fade-in with stagger
+- Solutions section slide-in (left/right)
+- Process functions Intersection Observer
+
+### CSS Animations
+- Gradient text shift (3s infinite)
+- Circle border rotation (4s infinite)
+- Line gradient flow (3s infinite)
+- Button hover gradients
+- Card hover transforms
+
+## 🔧 Configuration
+
+### Sanity Project
+- **ID:** `x0kdvbds`
+- **Name:** EternaCloud
+- **Dataset:** production
+- **Manage:** https://www.sanity.io/manage/project/x0kdvbds
+
+### Environment Variables
+The project is pre-configured with the projectId in code. No `.env.local` setup required for basic functionality.
+
+## 📦 Deployment
+
+### Deploy to Vercel
 
 ```bash
 vercel
@@ -203,41 +244,41 @@ vercel
 npm run sanity:deploy
 ```
 
-Studio will be available at `https://your-project.sanity.studio`
+## 🐛 Known Warnings
 
-## Development Notes
+**Sass @import deprecation warnings** - These are just warnings about Sass moving to `@use` syntax in the future. They don't affect functionality and can be migrated later if needed.
 
-### Responsive Design
-All components are fully responsive with breakpoints:
-- Mobile: < 576px
-- Tablet: 576px - 992px
-- Desktop: > 992px
+## 🔄 Migration from Static Site
 
-### Animations
-Animations handled with CSS transitions and GSAP for complex interactions.
+This Next.js app is a complete, pixel-perfect conversion including:
+- ✅ All HTML structure → React components
+- ✅ All SCSS styles → Sass modules
+- ✅ All JavaScript → React hooks + GSAP
+- ✅ All animations and interactions
+- ✅ All responsive breakpoints
+- ✅ All accessibility features
+- ✅ Content made dynamic via Sanity
 
-### Content Structure
-- Site-wide settings in `siteSettings`
-- Section-specific content in dedicated documents
-- Reusable content blocks in arrays
-- Flexible schema for future expansion
+Original static site preserved in `static-site/` for reference.
 
-## Available Scripts
-
-- `npm run dev` - Start Next.js development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run sanity` - Start Sanity Studio locally
-- `npm run sanity:deploy` - Deploy Sanity Studio
-
-## Learn More
+## 📚 Learn More
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Sanity Documentation](https://www.sanity.io/docs)
-- [Sass Documentation](https://sass-lang.com/documentation)
 - [GSAP Documentation](https://greensock.com/docs/)
-- [TypeScript Documentation](https://www.typescriptlang.org/docs)
+- [Sass Documentation](https://sass-lang.com/documentation)
+
+## 🎯 Project Goals Achieved
+
+✅ Next.js 15 with App Router  
+✅ TypeScript throughout  
+✅ Sass modules (no Tailwind)  
+✅ Sanity CMS with local dev  
+✅ Pixel-perfect design match  
+✅ All animations working  
+✅ Fully responsive  
+✅ Accessible  
+✅ Production-ready  
 
 ## License
 
