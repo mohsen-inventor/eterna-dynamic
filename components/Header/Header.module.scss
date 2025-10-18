@@ -18,11 +18,11 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   padding: 0 16px;
-  background-color: #ffffff;
+  background-color: $white;
   border-radius: 12px;
   margin-top: 32px;
   @include elevation(2);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba($black, 0.05);
   max-width: 1280px;
   height: 64px;
   @include transition(all, 0.6s, cubic-bezier(0.4, 0, 0.2, 1));
@@ -39,10 +39,10 @@
 .navbarGlass {
   @include glass-effect(0.72, 20px);
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.08),
-    0 1px 0 rgba(255, 255, 255, 0.5) inset,
-    0 -1px 0 rgba(0, 0, 0, 0.02) inset;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+    0 8px 32px rgba($black, 0.08),
+    0 1px 0 rgba($white, 0.5) inset,
+    0 -1px 0 rgba($black, 0.02) inset;
+  border: 1px solid rgba($white, 0.18);
   
   &::before {
     content: '';
@@ -50,9 +50,9 @@
     border-radius: inherit;
     background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 0) 50%,
-      rgba(255, 255, 255, 0.1) 100%
+      rgba($white, 0.4) 0%,
+      rgba($white, 0) 50%,
+      rgba($white, 0.1) 100%
     );
     pointer-events: none;
     opacity: 0.6;
@@ -87,7 +87,7 @@
   font-family: $font-primary;
   font-size: 20px;
   font-weight: 600;
-  color: #2A2A60;
+  color: $brand-navy;
   line-height: 1;
   letter-spacing: -0.02em;
 }
@@ -108,7 +108,7 @@
 .navbarLink {
   font-size: 15px;
   font-weight: 500;
-  color: #000000;
+  color: $black;
   padding: 8px 16px;
   position: relative;
   font-family: $font-primary;
@@ -123,13 +123,13 @@
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: $primary-color;
+    background-color: $purple-500;
     transform: translateX(-50%);
     @include transition(width);
   }
   
   &:hover {
-    color: $primary-color;
+    color: $purple-500;
     
     &::after {
       width: 100%;
@@ -148,17 +148,17 @@
   @include flex-center;
   width: 44px;
   height: 44px;
-  color: $primary-color;
-  background: rgba(255, 255, 255, 0.2);
+  color: $purple-500;
+  background: rgba($white, 0.2);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba($black, 0.1);
   border-radius: 10px;
   @include smooth-transition(all);
   
   &:hover {
-    background: rgba(139, 92, 246, 0.1);
-    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba($purple-500, 0.1);
+    border-color: rgba($purple-500, 0.3);
   }
   
   svg {
@@ -176,8 +176,8 @@
 }
 
 .btnPrimary {
-  background: linear-gradient(90deg, #3B82F6 0%, $primary-color 100%);
-  color: #ffffff;
+  background: linear-gradient(90deg, $blue-500 0%, $purple-500 100%);
+  color: $white;
   border: none;
   width: 160px;
   height: 44px;
@@ -192,7 +192,7 @@
   
   &:hover {
     span {
-      color: #ffffff;
+      color: $white;
     }
   }
   
@@ -204,7 +204,7 @@
 
 .btnGradientOverlay {
   @include absolute-fill;
-  background: linear-gradient(90deg, #3B82F6 0%, $primary-color 50%, #F59E0B 100%);
+  background: linear-gradient(90deg, $blue-500 0%, $purple-500 50%, $orange-500 100%);
   background-size: 200% 100%;
   background-position: 0% 50%;
   opacity: 0;
@@ -215,7 +215,7 @@
 .btnText {
   position: relative;
   z-index: 2;
-  color: #ffffff;
+  color: $white;
 }
 
 @keyframes slideDown {

@@ -2,7 +2,7 @@
 
 .process {
   padding: $spacing-3xl 0;
-  background: #ffffff;
+  background: $white;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -31,27 +31,27 @@
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: rgba($purple-500, 0.1);
+  border: 1px solid rgba($purple-500, 0.2);
   border-radius: 50px;
   margin-bottom: 24px;
   font-size: 14px;
   font-weight: 500;
-  color: #8B5CF6;
+  color: $purple-500;
   font-family: $font-primary;
 }
 
 .processBadgeIcon {
   width: 16px;
   height: 16px;
-  color: #8B5CF6;
+  color: $purple-500;
   flex-shrink: 0;
 }
 
 .processTitle {
   font-size: 48px;
   font-weight: 600;
-  color: #1e293b;
+  color: $text-section-title;
   margin-bottom: 4px;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -100,7 +100,7 @@
 
 .processDescription {
   font-size: 18px;
-  color: #888888;
+  color: $text-muted;
   line-height: 1.6;
   margin: 0 auto;
   font-family: $font-primary;
@@ -166,7 +166,7 @@
     
     &:hover {
       transform: translate3d(0, -8px, 0) scale(1.02);
-      filter: drop-shadow(0 10px 20px rgba(139, 92, 246, 0.15));
+      filter: drop-shadow(0 10px 20px rgba($purple-500, 0.15));
     }
   }
   
@@ -179,7 +179,7 @@
     
     &:hover {
       transform: translate3d(0, -6px, 0) scale(1.02);
-      filter: drop-shadow(0 8px 16px rgba(139, 92, 246, 0.12));
+      filter: drop-shadow(0 8px 16px rgba($purple-500, 0.12));
     }
   }
   
@@ -192,7 +192,7 @@
     
     &:hover {
       transform: translate3d(0, -4px, 0) scale(1.02);
-      filter: drop-shadow(0 6px 12px rgba(139, 92, 246, 0.1));
+      filter: drop-shadow(0 6px 12px rgba($purple-500, 0.1));
     }
   }
   
@@ -205,7 +205,7 @@
     
     &:hover {
       transform: translate3d(0, -8px, 0) scale(1.02);
-      filter: drop-shadow(0 4px 8px rgba(139, 92, 246, 0.08));
+      filter: drop-shadow(0 4px 8px rgba($purple-500, 0.08));
     }
   }
 
@@ -229,14 +229,14 @@
   margin-bottom: 14px;
   padding: 8px 16px;
   background: none;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba($purple-500, 0.2);
   border-radius: 50px;
   width: fit-content;
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-1px);
-    border-color: rgba(139, 92, 246, 0.3);
+    border-color: rgba($purple-500, 0.3);
   }
 }
 
@@ -244,7 +244,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  background: linear-gradient(135deg, $white 0%, $gray-100 100%);
   border: 2px solid transparent;
   background-clip: padding-box;
   position: relative;
@@ -256,12 +256,12 @@
     position: absolute;
     inset: -2px;
     border-radius: 50%;
-    background: conic-gradient(from 0deg, #8b5cf6, #f97316, #eab308, #8b5cf6, #8b5cf6);
+    background: conic-gradient(from 0deg, $purple-500, $orange-600, $yellow-500, $purple-500, $purple-500);
     z-index: -1;
     padding: 2px;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient($white 0 0) content-box, linear-gradient($white 0 0);
     -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient($white 0 0) content-box, linear-gradient($white 0 0);
     mask-composite: exclude;
     animation: circleRotate 4s linear infinite;
   }
@@ -278,7 +278,7 @@
 .processFunctionTitle {
   font-size: 0.8rem;
   font-weight: 600;
-  color: #000000;
+  color: $black;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin: 0;
@@ -287,7 +287,7 @@
   transition: all 0.2s ease;
 
   &:hover {
-    color: #1a1a1a;
+    color: $gray-975;
   }
 }
 
@@ -305,11 +305,11 @@
   height: 200px;
   background: linear-gradient(
     180deg,
-    #eab308 0%,
-    #f97316 25%,
-    #8b5cf6 50%,
-    #f97316 75%,
-    #eab308 100%
+    $yellow-500 0%,
+    $orange-600 25%,
+    $purple-500 50%,
+    $orange-600 75%,
+    $yellow-500 100%
   );
   background-size: 100% 200%;
   border: none;
@@ -325,8 +325,8 @@
   animation: lineFlow 3s ease-in-out infinite;
   transform: translateZ(0);
   backface-visibility: hidden;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to bottom, rgba($black, 1) 0%, rgba($black, 1) 85%, rgba($black, 0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba($black, 1) 0%, rgba($black, 1) 85%, rgba($black, 0) 100%);
 }
 
 .processFunctionItems {
@@ -346,7 +346,7 @@
 
 .processFunctionItem {
   font-size: 0.85rem;
-  color: #374151;
+  color: $text-item;
   font-weight: 400;
   text-align: left;
   padding: 8px 12px;

@@ -5,7 +5,7 @@
   min-height: 100vh;
   @include flex-center;
   overflow: hidden;
-  background-color: #0a0a0a;
+  background-color: $bg-dark;
 }
 
 .heroVideo {
@@ -24,13 +24,9 @@
 }
 
 .heroOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  @include absolute-fill;
   background: 
-    linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 80%, rgba(0, 0, 0, 0.6) 90%, rgba(0, 0, 0, 0.9) 95%, rgba(0, 0, 0, 1) 100%);
+    linear-gradient(180deg, rgba($black, 0.3) 0%, rgba($black, 0.3) 80%, rgba($black, 0.6) 90%, rgba($black, 0.9) 95%, rgba($black, 1) 100%);
   z-index: 2;
 }
 
@@ -70,7 +66,7 @@
 .heroHeadline {
   font-size: 64px;
   font-weight: 700;
-  color: #ffffff;
+  color: $white;
   margin-bottom: 20px;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -94,7 +90,7 @@
 
 .heroDescription {
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba($white, 0.9);
   line-height: 1.6;
   max-width: 700px;
   margin: 0 auto;
