@@ -1,13 +1,105 @@
-// Color Palette
-$primary-color: #1a1a1a;
-$secondary-color: #ffffff;
-$accent-color: #00d4ff;
-$text-color: #333333;
-$text-light: #666666;
-$bg-dark: #0a0a0a;
-$bg-light: #f5f5f5;
+// ============================================
+// Design Tokens - Variables
+// ============================================
 
+// ----------------
+// BASE COLOR PALETTE (by name)
+// Define all colors by their actual name/hex first
+// ----------------
+
+// Grayscale
+$white: #ffffff;
+$black: #000000;
+$gray-50: #f9fafb;
+$gray-100: #f5f5f5;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-600: #666666;
+$gray-700: #4b5563;
+$gray-800: #333333;
+$gray-900: #1a1a1a;
+$gray-950: #0a0a0a;
+
+// Purple Palette
+$purple-300: #c4b5fd;
+$purple-400: #a78bfa;
+$purple-500: #8B5CF6;  // Main purple
+$purple-600: #7c3aed;
+$purple-700: #6d28d9;
+
+// Blue Palette
+$blue-300: #93c5fd;
+$blue-400: #60a5fa;
+$blue-500: #3B82F6;   // Main blue
+$blue-600: #2563eb;
+$blue-700: #1d4ed8;
+
+// Indigo Palette
+$indigo-400: #818cf8;
+$indigo-500: #6366f1;
+$indigo-600: #4f46e5;
+$indigo-700: #4338ca;
+
+// Cyan Palette
+$cyan-300: #67e8f9;
+$cyan-400: #22d3ee;
+$cyan-500: #00D4FF;   // Main cyan
+$cyan-600: #0891b2;
+
+// Orange/Amber Palette
+$orange-400: #fb923c;
+$orange-500: #F59E0B;  // Main orange
+$orange-600: #ea580c;
+
+// Navy/Dark Blue
+$navy-500: #2A2A60;
+$navy-600: #1e1e4a;
+
+// ----------------
+// SEMANTIC/FUNCTIONAL COLORS
+// Colors assigned by function/purpose
+// ----------------
+
+// Primary Brand Colors
+$primary-color: $gray-900;           // #1a1a1a - Main brand color
+$secondary-color: $white;            // #ffffff - Secondary/contrast
+$accent-color: $cyan-500;            // #00d4ff - Accent highlights
+
+// Interactive Colors
+$interactive-primary: $purple-500;   // #8B5CF6 - Buttons, links, interactions
+$interactive-hover: $purple-600;     // #7c3aed - Hover states
+$interactive-active: $purple-700;    // #6d28d9 - Active/pressed states
+
+// Gradient Colors
+$gradient-start: $blue-500;          // #3B82F6
+$gradient-mid: $purple-500;          // #8B5CF6
+$gradient-end: $orange-500;          // #F59E0B
+$gradient-cyan: $cyan-500;           // #00D4FF
+
+// Text Colors
+$text-color: $gray-800;              // #333333 - Body text
+$text-light: $gray-600;              // #666666 - Secondary text
+$text-lighter: $gray-500;            // #6b7280 - Tertiary text
+$text-muted: rgba($gray-600, 0.6);  // Muted text
+
+// Background Colors
+$bg-dark: $gray-950;                 // #0a0a0a - Dark backgrounds
+$bg-light: $gray-100;                // #f5f5f5 - Light backgrounds
+$bg-card: $white;                    // #ffffff - Card backgrounds
+$bg-overlay: rgba($black, 0.5);     // Overlay backgrounds
+
+// Border Colors
+$border-light: rgba($black, 0.05);
+$border-medium: rgba($black, 0.1);
+$border-dark: rgba($black, 0.2);
+$border-interactive: rgba($purple-500, 0.2);
+
+// ----------------
 // Typography
+// ----------------
+
 $font-primary: 'Mazzardh', 'Inter', Arial, sans-serif;
 $font-heading: 'Mazzardh', 'Inter', Arial, sans-serif;
 
@@ -34,7 +126,10 @@ $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
-// Spacing
+// ----------------
+// Spacing (8px system)
+// ----------------
+
 $spacing-unit: 8px;
 $spacing-xs: $spacing-unit;        // 8px
 $spacing-sm: $spacing-unit * 2;    // 16px
@@ -46,7 +141,10 @@ $spacing-3xl: $spacing-unit * 10;  // 80px
 $spacing-4xl: $spacing-unit * 12;  // 96px
 $spacing-5xl: $spacing-unit * 16;  // 128px
 
+// ----------------
 // Breakpoints Map (for use with mixins)
+// ----------------
+
 $breakpoints: (
   'xs': 0,
   'sm': 576px,
@@ -64,16 +162,25 @@ $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 $breakpoint-xxl: 1400px;
 
+// ----------------
 // Container
+// ----------------
+
 $container-max-width: 1320px;
 $container-padding: $spacing-md;
 
+// ----------------
 // Transitions
+// ----------------
+
 $transition-base: all 0.3s ease;
 $transition-fast: all 0.15s ease;
 $transition-slow: all 0.5s ease;
 
-// Z-index
+// ----------------
+// Z-index Layers
+// ----------------
+
 $z-index-dropdown: 1000;
 $z-index-sticky: 1020;
 $z-index-fixed: 1030;
@@ -82,14 +189,38 @@ $z-index-modal: 1050;
 $z-index-popover: 1060;
 $z-index-tooltip: 1070;
 
-// Border radius
+// ----------------
+// Border Radius
+// ----------------
+
 $border-radius-sm: 4px;
 $border-radius-md: 8px;
 $border-radius-lg: 16px;
+$border-radius-xl: 20px;
+$border-radius-2xl: 24px;
 $border-radius-full: 9999px;
 
+// ----------------
 // Shadows
-$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-$shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
-$shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
-$shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.25);
+// ----------------
+
+$shadow-sm: 0 2px 4px rgba($black, 0.1);
+$shadow-md: 0 4px 8px rgba($black, 0.15);
+$shadow-lg: 0 8px 16px rgba($black, 0.2);
+$shadow-xl: 0 16px 32px rgba($black, 0.25);
+$shadow-2xl: 0 25px 50px rgba($black, 0.25);
+
+// Interactive Shadows
+$shadow-glow-purple: 0 0 20px rgba($purple-500, 0.3);
+$shadow-glow-blue: 0 0 20px rgba($blue-500, 0.3);
+$shadow-card-hover: 0 20px 40px rgba($black, 0.3);
+
+// ----------------
+// Glass Effect Values
+// ----------------
+
+$glass-bg-light: rgba($white, 0.72);
+$glass-bg-medium: rgba($white, 0.8);
+$glass-bg-strong: rgba($white, 0.9);
+$glass-border: rgba($white, 0.18);
+$glass-border-alt: rgba($black, 0.1);
